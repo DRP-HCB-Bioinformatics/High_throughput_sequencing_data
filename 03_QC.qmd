@@ -21,7 +21,12 @@ To assess the quality of short read sequencing data, we will work with FASTQ fil
 
 A FASTQ file can contain millions of individual sequence reads, with each read represented by its own four-line entry. When working with paired-end sequencing data, each sample will typically have two FASTQ files. These files contain the reads generated from the two ends of each fragment and are usually referred to as the forward (R1) and reverse (R2) reads.
 
-To be able to look at sequencing results, we will use the files from the sample we downloaded in the previous session.
+To be able to look at sequencing results, we will use the files from the sample we downloaded in the previous session. If the download failed, please use the following command to copy the files to your folder. 
+
+``` bash
+$ cp /library/training/DataQC/SRR15372746_* ./ 
+```
+
 
 :::: challenge
 <h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
