@@ -2,23 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Exploring Public Sequencing Data – Exploring Public Data</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -74,18 +68,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./images/DRP_banner_transparent2.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f18c1536b69351b821e95049b91df005.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-f18c1536b69351b821e95049b91df005.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f18c1536b69351b821e95049b91df005.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -167,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_PublicDatasets.html" class="sidebar-item-text sidebar-link">
+  <a href="./02_PublicDatasets.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Public Databases</span></a>
   </div>
 </li>
@@ -234,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/fastqseq.png" class="img-fluid" width="399"></p>
 <p>A FASTQ file can contain millions of individual sequence reads, with each read represented by its own four-line entry. When working with paired-end sequencing data, each sample will typically have two FASTQ files. These files contain the reads generated from the two ends of each fragment and are usually referred to as the forward (R1) and reverse (R2) reads.</p>
 <p>To be able to look at sequencing results, we will use the files from the sample we downloaded in the previous session. If the download failed, please use the following command to copy the files to your folder.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp /library/training/DataQC/SRR15372746_* ./ </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cp /library/training/DataQC/SRR15372746_<span class="pp">*</span> ./ </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="challenge">
 <h2 class="anchored" data-anchor-id="fastqc">
 <i class="fas fa-pencil-alt"></i> Challenge:
@@ -250,7 +245,7 @@ Solution
 <i class="far fa-eye"></i> Solution:
 </h2>
 <p>To look at the files in the folder, we can use <code>ls</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">$</span> ls</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">$</span> ls</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In the file names there are files with containing _1 and _2. These files belong together and indicates that we are working with paired end data.</p>
 </div>
 </details>
@@ -258,7 +253,7 @@ Solution
 <p><br>
 </p>
 <p>The dataset contains whole genome paired end data from a single HeLa cell lines. For sequencing, both the forward and reverse reads were generated at a length of 100 bp, commonly described as 2 × 150 bp sequencing. To look at the quality of the data, FastQC can be used to create several exploratory plots. FastQC can be installed as a command line tools, however is also available for Windows with a graphical interface. The command is very straightfoward and can take multiple files at once to process through. The following command can be used to get quality information about the reads.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> fastqc SRR15372746_1.fastq SRR15372746_2.fastq </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> fastqc SRR15372746_1.fastq SRR15372746_2.fastq </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>As an output, FastQC will generate a zip file as well as an html file. To look at the plots generated, the data can be download with a tool like <a href="https://filezilla-project.org/">FileZilla</a> or <a href="https://cyberduck.io/">Cyberduck</a>. For now, the resulting files are available on our server through links for the <a href="https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/fastqc/SRR15372746_1_fastqc.html">forward reads</a> and <a href="https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/fastqc/SRR15372746_2_fastqc.html">reverse reads</a>.</p>
 <div class="challenge">
 <h2 class="anchored">
@@ -320,7 +315,7 @@ Solution
 <h3 class="anchored">MultiQC</h3>
 <p>In many projects, we need to assess the quality of multiple samples. Reviewing FastQC reports one by one is time consuming. MultiQC provides a simple way to combine the results from multiple FastQC analyses into a single report, allowing you to assess the overall quality of a study and easily identify samples that may require further investigation.</p>
 <p>MultiQC is straightforward to use and can summarise results from dozens or even hundreds of samples in a single, easy-to-navigate report.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> multiqc <span class="at">-o</span> multiqc_results ./</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> multiqc <span class="at">-o</span> multiqc_results ./</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The resulting data can be download again using a variaty of tools (FileZilla or Cyberduck), however we have prepared the data for all the samples within the study which can be explore through <a href="https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/multiqc_results/multiqc_report.html">this link</a>.</p>
 <div class="challenge">
 <h2 class="anchored" data-anchor-id="multiqc">
