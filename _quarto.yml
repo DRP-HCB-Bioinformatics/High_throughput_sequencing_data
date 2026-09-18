@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Exploring Public Data"
+  sidebar:
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: 01_Sequencing.qmd
+        text: Sequencing Intro
+      - href: 02_PublicDatasets.qmd
+        text: Public Databases
+      - href: 03_QC.qmd
+        text: Data QC
+      - href: 04_ReferenceGenomes.qmd
+        text: References
+        
+format:
+  html:
+    theme: cosmo
+    css: challengestyles.css
+    toc: true
+    link-external-newwindow: true

@@ -1,0 +1,15 @@
+---
+title: "Exploring Public Sequencing Data"
+format: html
+---
+
+Welcome to the Public Sequencing Data day taught by the Bioinformatics core at the [Discovery Research Platform for Hidden Cell Biology](https://biology.ed.ac.uk/drp), today we will go over several different essential topics when it comes to using public data.
+
+During this course you will learn to:
+
+-   Learn about different types of sequencing
+-   Explore public databases for sequencing data
+-   Download data and quality assess data
+-   Explore and download reference genomes
+
+If you have any questions please contact Daniel Robertson, Heleen de Weerd or Shaun Webb.

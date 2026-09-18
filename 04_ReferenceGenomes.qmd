@@ -1,0 +1,147 @@
+---
+title: "Exploring Public Sequencing Data"
+format: html
+---
+
+```{=html}
+<script src="https://kit.fontawesome.com/ece750edd7.js" crossorigin="anonymous"></script>
+```
+
+## Reference Genomes
+
+For many different types of bioinformatics analysis, we need to use a reference genome to be able to do our work. Sometimes finding and downloading a proper reference genome can be a challenge. How do we find out if the reference genome works for the specific goal that we have? There are many places that reference genomes are available, though there are two main places to look for reference genomes **ENSEMBL** and **National Center for Biotechnology Information (NCBI)**
+
+## ENSEMBL
+
+A great place to look at high quality reference genomes is [ENSEMBL](http://ensembl.org/index.html). ENSEMBL contains information about genes, transcripts and further annotation. These can be retrieved at the genome, gene and protein level. It includes information on protein domains, genetic variation, homology, syntenic regions and regulatory elements.
+\
+
+To take a look at the human genome, click `Homo sapiens`. Many different types of data are available, including the full genome, annotation, regulatory element and known variants. To download the genome sequence, click `Download DNA sequence`. Each chromosome can be downloaded separately, the file named `dna.toplevel.fa.gz` at the end of the file contains the full genome. \
+To easily download the files onto a Linux machine, we can use the `wget` command. This command takes the link to the document online. To easily get the link to the file we want to download, right click the file and copy the link. The following should then download the file:
+
+``` bash
+$ wget https://ftp.ensembl.org/pub/release-116/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.toplevel.fa.gz
+```
+
+If we go back to the genome overview, the annotation can be downloaded by clicking `Download GTF` or `GFF3` to download the GTF annotation or GFF3 annotation file. For the GFF3 files, these again have a separate file for each chromosome.
+
+:::: challenge
+<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+
+Download the GTF annotation file. 
+
+<details>
+
+<summary>Solution</summary>
+
+::: solution
+<h2><i class="far fa-eye"></i> Solution:</h2>
+
+Using `wget` again to download the annotation, the following would be the command:
+
+``` bash
+$ wget https://ftp.ensembl.org/pub/release-116/gtf/homo_sapiens/Homo_sapiens.GRCh38.116.gtf.gz
+```
+
+:::
+
+</details>
+::::
+
+\
+
+:::: challenge
+<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+
+Extract both files. 
+
+<details>
+
+<summary>Solution</summary>
+
+::: solution
+<h2><i class="far fa-eye"></i> Solution:</h2>
+
+We can use `gunzip` to unpack both files.
+
+``` bash
+$ gunzip *.gz
+```
+
+:::
+
+</details>
+::::
+
+## NCBI
+
+NCBI is a central place for many different types of data. One of these places is the [genome](https://www.ncbi.nlm.nih.gov/datasets/genome/) repository. Unlike ENSEMBL, these genomes are not always as highly curated and people can upload their own genomes to this repository easily. Genomes can be uploaded in different states of assembly, meaning that some of the genomes are only partially assembled and/or annotated. 
+
+:::: challenge
+<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+
+Go to the NCBI genome website, search for "Homo sapiens". How many genomes are available for human? How many of these are complete genomes? 
+
+***Hint:** use the filters to select only complete genomes*
+
+<details>
+
+<summary>Solution</summary>
+
+::: solution
+<h2><i class="far fa-eye"></i> Solution:</h2>
+
+From the amount of results, we can see that there are 2,574 genomes available for humans. Of these only 4 are considered to be complete. 
+
+:::
+
+</details>
+::::
+\
+The reference genome we previously explored at ENSEMBL is not part of the complete list. However, if we also accept genomes that are assembled to chromosome level, that reference genome (GRCh38.p14) now makes is on the list. The difference between complete and chromosome levels is that complete genomes should not contain any gaps, ambiguous bases or unplaced scaffolds. Chromosome level genomes can still contain some gaps and minor unplaced scaffolds. Both are generally considered good quality assemblies and can be used for different applications. 
+\
+
+To download the genome, we can click the name of the assembly to go to the assembly page. Here more information can be found on the assembly and annotation of the genome. 
+
+:::: challenge
+<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+
+When was the first version of the human GRCh38.p14 genome uploaded?
+
+<details>
+
+<summary>Solution</summary>
+
+::: solution
+<h2><i class="far fa-eye"></i> Solution:</h2>
+
+Towards the bottom of the information page, we can find that the first upload was on the 22nd of February in 2010.  
+
+:::
+
+</details>
+::::
+
+To download the genome, at the top of the page click `FTP`. There are multiple different files available for each download, lets look at and explain some of the most often used files. The following names are at the ends of the files:
+
+- `genomic.fna.gz` contains the genome sequence
+- `genomic.gtf.gz` contains gene descriptions and locations
+- `genomic.gbff.gz` contains a genbank file which contains both sequence and gene descriptions
+- `protein.faa.gz` contains protein sequences
+
+
+:::: key-points
+<h2><i class="fas fa-thumbtack"></i> Key points</h2>
+What are some essential things to consider when evaluating a reference genome?
+\
+
+The number of sequences within the assembly is important. The closer to the expected number of chromosomes, the better it should be. It is important to also take into account the full genome size and whether that is in line with what you expect for the reference genome. 
+\
+In terms of annotation, it is often good to check how many genes have been annotated. 
+\
+
+Depending on the application, generally its good to have a genome which is the species you are studying. However, if the genome for your specific species is not great, but a closely related species is high quality, it might be worth taking the related species. 
+
+
+::::
+

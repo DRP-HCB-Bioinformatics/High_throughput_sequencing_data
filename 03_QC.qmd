@@ -1,0 +1,132 @@
+---
+title: "Exploring Public Sequencing Data"
+format: html
+---
+
+```{=html}
+<script src="https://kit.fontawesome.com/ece750edd7.js" crossorigin="anonymous"></script>
+```
+
+Each sequencing application has slightly different requirements and expectations regarding data quality. In this session, we will cover quality assessment, as well as discuss considerations specific to different types of sequencing data.
+
+## Short Reads
+
+For short-read sequencing, we will use [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and [MultiQC](https://seqera.io/multiqc/) to assess and summarise the quality of [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) files.
+
+### FastQC
+
+To assess the quality of short read sequencing data, we will work with FASTQ files. FASTQ is a standardised file format that stores both the sequence information and the quality scores for each read. A single sequence entry in FASTQ format consists of four lines. The first line contains the sequence identifier or read name, the second line contains the nucleotide sequence, the third line is a separator, and the fourth line contains the quality score for each base, represented using [Phred](https://en.wikipedia.org/wiki/Phred_quality_score) quality scores. An example of a single sequence can be found below.
+
+![](images/fastqseq.png){width="399"}
+
+A FASTQ file can contain millions of individual sequence reads, with each read represented by its own four-line entry. When working with paired-end sequencing data, each sample will typically have two FASTQ files. These files contain the reads generated from the two ends of each fragment and are usually referred to as the forward (R1) and reverse (R2) reads.
+
+To be able to look at sequencing results, we will use the files from the sample we downloaded in the previous session.
+
+:::: challenge
+<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+
+Take a look at the files which were downloaded. Can you identify from the files if this data is single end or paired end sequencing?
+
+<details>
+
+<summary>Solution</summary>
+
+::: solution
+<h2><i class="far fa-eye"></i> Solution:</h2>
+
+To look at the files in the folder, we can use `ls`.
+
+``` bash
+ $ ls
+```
+
+In the file names there are files with containing \_1 and \_2. These files belong together and indicates that we are working with paired end data.
+:::
+
+</details>
+::::
+
+\
+
+The dataset contains whole genome paired end data from a single HeLa cell lines. For sequencing, both the forward and reverse reads were generated at a length of 100 bp, commonly described as 2 × 150 bp sequencing. To look at the quality of the data, FastQC can be used to create several exploratory plots. FastQC can be installed as a command line tools, however is also available for Windows with a graphical interface. The command is very straightfoward and can take multiple files at once to process through. The following command can be used to get quality information about the reads.
+
+``` bash
+$ fastqc SRR15372746_1.fastq SRR15372746_2.fastq 
+```
+
+As an output, FastQC will generate a zip file as well as an html file. To look at the plots generated, the data can be download with a tool like [FileZilla](https://filezilla-project.org/) or [Cyberduck](https://cyberduck.io/). For now, the resulting files are available on our server through links for the [forward reads](https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/fastqc/SRR15372746_1_fastqc.html) and [reverse reads](https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/fastqc/SRR15372746_2_fastqc.html).
+
+::: challenge
+<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+
+Take a look at the results, is there anything that stands out?
+:::
+
+\
+
+To get a better idea of the ranges you might get when looking at quality information, FastQC has some examples of [good quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) data and [bad quality data](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html).
+
+:::: challenge
+<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+
+Take a look at the good and bad quality data, what are some of the things that stand out to you?
+
+<details>
+
+<summary>Solution</summary>
+
+::: solution
+<h2><i class="far fa-eye"></i> Solution:</h2>
+
+For each one of the section, FastQC will indicate if the data is good, average or bad with green, orange and red icons.
+
+- Towards the end of the reads of the bad quality data, the quality of the bases reduces.
+- In the per tile sequence quality, there are some red spots in the bad quality plot.
+- In the per sequence quality score, there are two bumps for the bad quality plot versus only 1 solid peak for the good quality data.
+- The per base sequence content for the bad quality data is more choppy.
+- The sequence QC content is not in line with the expected distribution in the bad quality data.
+- Some sequences in the bad quality data contain Ns (meaning they were not properly base called)
+- There is a high number of duplication for some of the reads in the bad quality data.
+- There are overpresented sequences present in the bad quality sequences.
+:::
+
+</details>
+::::
+
+\
+
+Although FastQC provides useful indicators of potential issues that may need investigation, a red flag does not necessarily mean that the data are of poor quality. FastQC was originally developed for whole-genome sequencing data, and some of its checks may not be appropriate for other sequencing applications. For example, RNA-seq and metagenomic data can naturally produce warnings or failures because of their biological composition or library preparation. Below some of the common warnings given that might easily be explained.
+
+::: key-points
+<h2><i class="fas fa-thumbtack"></i> Notes</h2>
+
+- With Illumina sequencing, it is sometimes possible to see a short region of lower-quality bases at the beginning of the reads. This can be caused by low sequence diversity, where many reads start with the same or very similar bases. For example, in RNA-seq, reads may have a particular sequences because of the underlying biology or library preparation. A small decrease in quality at the start of the reads is therefore not necessarily a cause for concern.
+- With Illumina paired-end sequencing, it is common to see a gradual decrease in quality towards the end of the reads. As sequencing progresses, base-calling accuracy can decrease. This effect is often more pronounced in R2, as the reverse read is sequenced later in the process. Low quality bases at the ends of reads can often be removed using a read trimming tool, which we will cover in the ChIP-seq session.
+- The base composition at the beginning of reads, or even the entire read, may show variation. This can be expected for some sequencing applications. For example, RNA-seq libraries can have a biased sequence composition at the start of reads due to biological or library-preparation effects. Similarly, amplicon sequencing can target highly conserved regions, in those cases non-random base composition across the entire read can be expected.
+- The observed GC content may differ from the theoretical expectation for a particular organism or genome. This does not necessarily indicate a problem, particularly when the sample contains multiple species, as is common in metagenomic sequencing. Differences in genome composition between species can produce a broader or shifted GC-content distribution.
+- A high level of duplication is not necessarily a sign of poor quality data. In RNA-seq, highly expressed genes can naturally generate many reads with identical sequences. Similarly, in metagenomics, reads from a highly abundant species may be overrepresented in the dataset.
+- Adapter sequences can remain in the data after sequencing and may be detected by FastQC. Their presence is not necessarily unexpected, particularly when inserts are shorter than the sequencing read length. Adapter sequences can usually be identified and removed using a read trimming tool before downstream analysis.
+:::
+
+\
+
+### MultiQC
+
+In many projects, we need to assess the quality of multiple samples. Reviewing FastQC reports one by one is time consuming. MultiQC provides a simple way to combine the results from multiple FastQC analyses into a single report, allowing you to assess the overall quality of a study and easily identify samples that may require further investigation.
+
+MultiQC is straightforward to use and can summarise results from dozens or even hundreds of samples in a single, easy-to-navigate report.
+
+``` bash
+$ multiqc -o multiqc_results ./
+```
+
+The resulting data can be download again using a variaty of tools (FileZilla or Cyberduck), however we have prepared the data for all the samples within the study which can be explore through [this link](https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/multiqc_results/multiqc_report.html).
+
+::: challenge
+<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+
+Take a look at the results of MultiQC results. Is there anything that stands out?
+:::
+
+\
