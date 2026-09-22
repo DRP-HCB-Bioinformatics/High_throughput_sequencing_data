@@ -2,23 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exploring Public Sequencing Data – Exploring Public Data</title>
+<title>Genome assemblies and annotations – High Throughput Sequencing Data</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -78,14 +75,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b00097fbe245c0658e8e1284714b1aa3.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -127,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_ReferenceGenomes.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_ReferenceGenomes.html">Reference Genomes</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,13 +159,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_Sequencing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sequencing Intro</span></a>
+ <span class="menu-text">HTS Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_PublicDatasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Public Databases</span></a>
+ <span class="menu-text">Sequencing Databases</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_ReferenceGenomes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Reference Genomes</span></a>
   </div>
 </li>
     </ul>
@@ -193,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#reference-genomes" id="toc-reference-genomes" class="nav-link active" data-scroll-target="#reference-genomes">Reference Genomes</a></li>
+  <li><a href="#genome-assemblies" id="toc-genome-assemblies" class="nav-link active" data-scroll-target="#genome-assemblies">Genome assemblies</a></li>
   <li><a href="#ensembl" id="toc-ensembl" class="nav-link" data-scroll-target="#ensembl">ENSEMBL</a></li>
   <li><a href="#ncbi" id="toc-ncbi" class="nav-link" data-scroll-target="#ncbi">NCBI</a></li>
   </ul>
@@ -204,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exploring Public Sequencing Data</h1>
+<h1 class="title">Genome assemblies and annotations</h1>
 </div>
 
 
@@ -222,23 +219,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="https://kit.fontawesome.com/ece750edd7.js" crossorigin="anonymous"></script>
-<section id="reference-genomes" class="level2">
-<h2 class="anchored" data-anchor-id="reference-genomes">Reference Genomes</h2>
-<p>For many different types of bioinformatics analysis, we need to use a reference genome to be able to do our work. Sometimes finding and downloading a proper reference genome can be a challenge. How do we find out if the reference genome works for the specific goal that we have? There are many places that reference genomes are available, though there are two main places to look for reference genomes <strong>ENSEMBL</strong> and <strong>National Center for Biotechnology Information (NCBI)</strong></p>
+<p>One of the most common tasks in sequencing analysis is to map reads to a reference genome using an alignment tool. These tools work by aligning the read sequence to best match positions on the reference sequence. These alignments can give us the location of ChIP-seq peaks, the expression of genes in RNA-seq data, or the location of variants in whole genome sequencing data. In this session, we will explore how to find and download reference genomes for different species.</p>
+<section id="genome-assemblies" class="level2">
+<h2 class="anchored" data-anchor-id="genome-assemblies">Genome assemblies</h2>
+<p>A genome assembly is a reference sequence of a particular species, which serves as a template for mapping and analysing genomic data. Different assemblies may exist for the same species, representing different versions of the reference genome.</p>
+<p>When a reference genome sequence is published it is given a name or ID. Reference sequences are continually being improved by re-sequencing and new versions are given a new name. These unique names are often referred to as the genome <strong>assembly</strong> or genome <strong>build</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/assemblies.png" class="img-fluid figure-img"></p>
+<figcaption>Scientific American (2022) 327(2):92.</figcaption>
+</figure>
+</div>
+<p>For example, the human genome has several assemblies including hg19 (also known as GRCh37) and hg38 (also known as GRCh38). These assemblies differ in terms of the reference sequence, the annotation of genomic features, and the coordinates used to represent genomic locations.</p>
+<p>Human genome assemblies:</p>
+<ul>
+<li>NCBI34 / hg16: July 2003</li>
+<li>NCBI35 / hg17: May 2004</li>
+<li>NCBI36 / hg18: March 2006</li>
+<li>GRCh37 / hg19: Feb 2009</li>
+<li>GRCh38 / hg38: Dec 2013</li>
+<li>CHM13 : Mar 2021 (Gapless Telomere-to-telomere assembly)</li>
+</ul>
+<p>The reference sequence changes with each release of a genome build</p>
+<ul>
+<li>Chromosome lengths can change</li>
+<li>Each genome build has a specific co-ordinate system
+<ul>
+<li>Chr1 position 1000000 is T in hg19 and G in hg38!</li>
+</ul></li>
+</ul>
+<p>It is <strong>extremely important</strong> to choose the correct assembly for your data and to avoid comparing datasets mapped to different assemblies.</p>
+<p>Finding and downloading a proper reference genome can sometimes be a challenge. Thankfully, the <strong>ENSEMBL</strong> and <strong>NCBI</strong> databases provide accessible resources to search and download reference genomes for many different species.</p>
 </section>
 <section id="ensembl" class="level2">
 <h2 class="anchored" data-anchor-id="ensembl">ENSEMBL</h2>
-<p>A great place to look at high quality reference genomes is <a href="http://ensembl.org/index.html">ENSEMBL</a>. ENSEMBL contains information about genes, transcripts and further annotation. These can be retrieved at the genome, gene and protein level. It includes information on protein domains, genetic variation, homology, syntenic regions and regulatory elements.<br>
-</p>
-<p>To take a look at the human genome, click <code>Homo sapiens</code>. Many different types of data are available, including the full genome, annotation, regulatory element and known variants. To download the genome sequence, click <code>Download DNA sequence</code>. Each chromosome can be downloaded separately, the file named <code>dna.toplevel.fa.gz</code> at the end of the file contains the full genome.<br>
-To easily download the files onto a Linux machine, we can use the <code>wget</code> command. This command takes the link to the document online. To easily get the link to the file we want to download, right click the file and copy the link. The following should then download the file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wget https://ftp.ensembl.org/pub/release-116/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.toplevel.fa.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If we go back to the genome overview, the annotation can be downloaded by clicking <code>Download GTF</code> or <code>GFF3</code> to download the GTF annotation or GFF3 annotation file. For the GFF3 files, these again have a separate file for each chromosome.</p>
+<p>The <a href="http://ensembl.org/index.html">ENSEMBL</a> database is a joint project between the European Bioinformatics Institute (EBI) and the Wellcome Sanger Institute. It provides a centralised resource for genomic data, including reference genomes, gene annotations, and other related information.</p>
+<p>ENSEMBL reference genomes are highly curated and contain information about genes, transcripts and proteins. These are accompanied by functional annotations that include protein domains, genetic variation, homology, syntenic regions and regulatory elements.</p>
+<p>Let’s take a look at the human genome:</p>
+<ol type="1">
+<li>Open the ENSEMBL home page and go to the <strong>Genome selector</strong>.</li>
+<li>Click on <strong>Homo sapiens</strong> to view the human genome (The first icon is a hand print).</li>
+<li>The most recent annotated version of the human genome is at the top and pre-selected (GRCh38.p14).</li>
+</ol>
+<p>Once one or more genomes are selected, you can use these genomes to browse the ENSEMBL website and explore genome sequences and features. If we want to use this data outside of ENSEMBL then we can download it.</p>
+<ol type="1">
+<li>Click on the <code>FTP</code> link for GRCh38.p14 in the Genome selector view.</li>
+<li>Go into the <code>genome</code> folder.</li>
+</ol>
+<p>The genome is available in masked and unmasked formats. Masked means that repeated regions are changed so that they are hidden for specific applications. Unless the application specifically indicated it needs a masked genome, using the unmasked genome is the best way to go. Hard masked reference sequences replace repetitive sequence with N characters, while soft masking keeps the original sequence but marks it as repetitive by using lowercase letters.</p>
+<p>We can download files onto a Linux machine with the <code>wget</code> command. Right click on <code>unmasked.fa.gbz</code> and copy the link, then provide this as an argument to <code>wget</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ftp.ebi.ac.uk/pub/ensemblorganisms/GCA/000/001/405/29/ensembl/2026_04/genome/unmasked.fa.bgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We can also download gene annotations for this genome assembly. Navigate to the <code>geneset</code> folder for GRCh38.p14 and take a look at the available files. There are two different fasta files containing the nucleotide sequences for genes (cDNA) and the amino acid sequences for annotated proteins (pep). Gene annotations are available in two different versions, genes and genes-including_alt. The alt sequences are alternative haplotypes for the genome assembly. In most cases, alt annotations create redundancy in analysis, therefore the genes file is the most often used annotation. Both files are available in gff3 and gtf formats. These are very similar and contain models for genes, transcripts and exons. The gff3 format is more general and can be used to describe many different types of genomic features, while the gtf format is specifically designed for genes.</p>
 <div class="challenge">
 <h2 class="anchored">
 <i class="fas fa-pencil-alt"></i> Challenge:
 </h2>
-<p>Download the GTF annotation file.</p>
+<p>Download the <code>genes.gtf.bgz</code> GTF annotation file.</p>
 <details>
 <summary>
 Solution
@@ -248,18 +284,16 @@ Solution
 <h2 class="anchored">
 <i class="far fa-eye"></i> Solution:
 </h2>
-<p>Using <code>wget</code> again to download the annotation, the following would be the command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wget https://ftp.ensembl.org/pub/release-116/gtf/homo_sapiens/Homo_sapiens.GRCh38.116.gtf.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>wget</code> to download the gene annotation file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ftp.ebi.ac.uk/pub/ensemblorganisms/GCA/000/001/405/29/ensembl/2026_04/geneset/genes.gtf.bgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </details>
 </div>
-<p><br>
-</p>
 <div class="challenge">
 <h2 class="anchored">
 <i class="fas fa-pencil-alt"></i> Challenge:
 </h2>
-<p>Extract both files.</p>
+<p>Extract both files and inspect the first few lines. These files are compressed with <code>bgzip</code>. Look at the <code>bgzip</code> command to see how to decompress these files.</p>
 <details>
 <summary>
 Solution
@@ -269,20 +303,24 @@ Solution
 <h2 class="anchored">
 <i class="far fa-eye"></i> Solution:
 </h2>
-<p>We can use <code>gunzip</code> to unpack both files.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> gunzip <span class="pp">*</span>.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We can use <code>bgzip</code> to unpack both files and <code>head</code> to view the first few lines of each file.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bgzip</span> <span class="at">-d</span> genes.gtf.bgz</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bgzip</span> <span class="at">-d</span> unmasked.fa.bgz</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> genes.gtf</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> unmasked.fa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </details>
 </div>
 </section>
 <section id="ncbi" class="level2">
 <h2 class="anchored" data-anchor-id="ncbi">NCBI</h2>
-<p>NCBI is a central place for many different types of data. One of these places is the <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/">genome</a> repository. Unlike ENSEMBL, these genomes are not always as highly curated and people can upload their own genomes to this repository easily. Genomes can be uploaded in different states of assembly, meaning that some of the genomes are only partially assembled and/or annotated.</p>
+<p>As we have seen already, NCBI is a large resource for many different databases of biological data. One of these databases is the <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/">genome</a> repository. Unlike ENSEMBL, these genomes are not always as highly curated and people can upload their own genomes to this repository. Genomes can be uploaded in different states of assembly, meaning that some of the genomes are only partially assembled and/or annotated. This is often where you will find genomes for species that are not well studied.</p>
 <div class="challenge">
 <h2 class="anchored">
 <i class="fas fa-pencil-alt"></i> Challenge:
 </h2>
-<p>Go to the NCBI genome website, search for “Homo sapiens”. How many genomes are available for human? How many of these are complete genomes?</p>
+<p>Go to the NCBI genome website and search for “Homo sapiens”. How many genomes are available for human? How many of these are complete genomes?</p>
 <p><em><strong>Hint:</strong> use the filters to select only complete genomes</em></p>
 <details>
 <summary>
@@ -293,49 +331,30 @@ Solution
 <h2 class="anchored">
 <i class="far fa-eye"></i> Solution:
 </h2>
-<p>From the amount of results, we can see that there are 2,574 genomes available for humans. Of these only 4 are considered to be complete.</p>
+<p>At the time of writing there were 2,578 genomes available for humans. Of these only 4 are considered to be complete.</p>
 </div>
 </details>
 </div>
-<p><br>
-The reference genome we previously explored at ENSEMBL is not part of the complete list. However, if we also accept genomes that are assembled to chromosome level, that reference genome (GRCh38.p14) now makes is on the list. The difference between complete and chromosome levels is that complete genomes should not contain any gaps, ambiguous bases or unplaced scaffolds. Chromosome level genomes can still contain some gaps and minor unplaced scaffolds. Both are generally considered good quality assemblies and can be used for different applications.<br>
-</p>
-<p>To download the genome, we can click the name of the assembly to go to the assembly page. Here more information can be found on the assembly and annotation of the genome.</p>
-<div class="challenge">
-<h2 class="anchored">
-<i class="fas fa-pencil-alt"></i> Challenge:
-</h2>
-<p>When was the first version of the human GRCh38.p14 genome uploaded?</p>
-<details>
-<summary>
-Solution
-</summary>
-<div class="proof solution">
-<p><span class="proof-title"><em>Solution</em>. </span></p>
-<h2 class="anchored">
-<i class="far fa-eye"></i> Solution:
-</h2>
-<p>Towards the bottom of the information page, we can find that the first upload was on the 22nd of February in 2010.</p>
-</div>
-</details>
-</div>
-<p>To download the genome, at the top of the page click <code>FTP</code>. There are multiple different files available for each download, lets look at and explain some of the most often used files. The following names are at the ends of the files:</p>
+<p>A complete genome is one that is fully assembled, with no gaps or unplaced scaffolds. These Telomere-2-Telomere (T2T) assemblies are relatively new and achieved through advances in long read sequencing.</p>
+<p>The reference genome we previously explored at ENSEMBL is not part of the complete list. However, if we also accept genomes that are assembled to chromosome level, that reference genome (GRCh38.p14) now makes it on the list. Chromosome level genomes can still contain some gaps and minor unplaced scaffolds. Both are generally considered good quality assemblies and can be used for different applications.</p>
+<p>We can click the name of an assembly to go to the assembly page. Here more information can be found on the assembly and annotation of the genome.</p>
+<p>To download the genome, click <strong>FTP</strong> at the top of the page. There are multiple different files available, lets look at some of the most commonly used files. The following suffixes are at the end of the file names:</p>
 <ul>
-<li><code>genomic.fna.gz</code> contains the genome sequence</li>
-<li><code>genomic.gtf.gz</code> contains gene descriptions and locations</li>
-<li><code>genomic.gbff.gz</code> contains a genbank file which contains both sequence and gene descriptions</li>
-<li><code>protein.faa.gz</code> contains protein sequences</li>
+<li><code>*genomic.fna.gz</code> contains the genome sequence</li>
+<li><code>*genomic.gtf.gz</code> contains gene models and annotations</li>
+<li><code>*genomic.gbff.gz</code> contains a genbank file which contains both sequence and gene descriptions</li>
+<li><code>*protein.faa.gz</code> contains protein sequences</li>
 </ul>
-<div class="key-points">
+<div class="resources">
 <h2 class="anchored">
-<i class="fas fa-thumbtack"></i> Key points
+<i class="fas fa-note"></i> Discussion
 </h2>
-<p>What are some essential things to consider when evaluating a reference genome?<br>
-</p>
-<p>The number of sequences within the assembly is important. The closer to the expected number of chromosomes, the better it should be. It is important to also take into account the full genome size and whether that is in line with what you expect for the reference genome.<br>
-In terms of annotation, it is often good to check how many genes have been annotated.<br>
-</p>
-<p>Depending on the application, generally its good to have a genome which is the species you are studying. However, if the genome for your specific species is not great, but a closely related species is high quality, it might be worth taking the related species.</p>
+<p>What to consider when evaluating a reference genome:</p>
+<ul>
+<li>The number of sequences within the assembly. The closer to the expected number of chromosomes, the better it should be. It is important to also take into account the full genome size and whether that is in line with what you expect for the reference genome.</li>
+<li>The quality of the annotation. In terms of annotation, it is often good to check how many genes have been annotated.</li>
+<li>Generally, it’s good to have a genome which is the species you are studying. However, if the genome for your specific species is not great, but a closely related species is high quality, it might be worth taking the related species.</li>
+</ul>
 </div>
 
 

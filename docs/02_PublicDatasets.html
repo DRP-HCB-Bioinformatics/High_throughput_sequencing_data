@@ -2,23 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exploring Public Sequencing Data – Exploring Public Data</title>
+<title>Exploring Public Sequencing Data – High Throughput Sequencing Data</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -78,14 +75,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b00097fbe245c0658e8e1284714b1aa3.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -127,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_PublicDatasets.html">Public Databases</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_PublicDatasets.html">Sequencing Databases</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,13 +159,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_Sequencing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sequencing Intro</span></a>
+ <span class="menu-text">HTS Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_PublicDatasets.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Public Databases</span></a>
+ <span class="menu-text">Sequencing Databases</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_ReferenceGenomes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Reference Genomes</span></a>
   </div>
 </li>
     </ul>
@@ -193,14 +190,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ncbi" id="toc-ncbi" class="nav-link active" data-scroll-target="#ncbi">NCBI</a>
+  <li><a href="#sequencing-data-repositories" id="toc-sequencing-data-repositories" class="nav-link active" data-scroll-target="#sequencing-data-repositories">Sequencing data repositories</a></li>
+  <li><a href="#ncbi" id="toc-ncbi" class="nav-link" data-scroll-target="#ncbi">NCBI</a>
   <ul class="collapse">
   <li><a href="#geo" id="toc-geo" class="nav-link" data-scroll-target="#geo">GEO</a></li>
   <li><a href="#sra" id="toc-sra" class="nav-link" data-scroll-target="#sra">SRA</a></li>
+  <li><a href="#sra-toolkit" id="toc-sra-toolkit" class="nav-link" data-scroll-target="#sra-toolkit">SRA toolkit</a></li>
   </ul></li>
-  <li><a href="#ena" id="toc-ena" class="nav-link" data-scroll-target="#ena">ENA</a>
+  <li><a href="#ena-european-nucleotide-archive" id="toc-ena-european-nucleotide-archive" class="nav-link" data-scroll-target="#ena-european-nucleotide-archive">ENA (European Nucleotide Archive)</a>
   <ul class="collapse">
-  <li><a href="#search" id="toc-search" class="nav-link" data-scroll-target="#search">Search</a></li>
+  <li><a href="#searching-the-ena" id="toc-searching-the-ena" class="nav-link" data-scroll-target="#searching-the-ena">Searching the ENA</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -228,13 +227,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="https://kit.fontawesome.com/ece750edd7.js" crossorigin="anonymous"></script>
-<p>Public data can be extremely helpful in a number of different applications. Whether testing new tools, writing applications, comparisons of data, it has become an essential source of data. Whenever publishing a scientific article, many papers will require the raw data to be made available online. Public data can be found in a selection of different places, with two central locations that most people will use to store raw sequence data, the European Nucleotide Archive (ENA) and the National Center for Biotechnology Information (NCBI). The data can contain reads for whole genome sequencing, gene expression or any other application sequencing can be used for, as well as data coming from different sequencers. We will take a look at the two main databases, how to search, download and finally quality check the data.</p>
+<p>Millions of sequencing datasets are now publicly available online thanks to the efforts of various research institutions and funding bodies. These datasets can be used for a variety of purposes, including testing, writing applications, and performing comparative data analyses.</p>
+<section id="sequencing-data-repositories" class="level2">
+<h2 class="anchored" data-anchor-id="sequencing-data-repositories">Sequencing data repositories</h2>
+<p>When publishing scientific articles, it is required practice to make sequencing data available online. This is often achieved through public repositories, which allow researchers to share their data with the scientific community and adhere to <a href="https://www.go-fair.org/fair-principles/">FAIR</a> data principles:</p>
+<ul>
+<li><strong>Findable</strong>: Data should be easy to find for both humans and computers. This includes the use of metadata and unique identifiers.</li>
+<li><strong>Accessible</strong>: Once the user finds the required data, they need to know how it can be accessed, possibly including authentication and authorisation.</li>
+<li><strong>Interoperable</strong>: The data should be able to be integrated with other data and work with standard applications or workflows for analysis, storage, and processing.</li>
+<li><strong>Reusable</strong>: The ultimate goal of FAIR is to optimise the reuse of data. To achieve this, metadata and data should be well-described so that they can be replicated or reused in different settings.</li>
+</ul>
+<p>In this session, we will explore two of the most commonly used public repositories for sequencing data: The National Center for Biotechnology Information (NCBI) and the European Nucleotide Archive (ENA). We will discuss how to search for data, download it, and perform quality checks.</p>
+</section>
 <section id="ncbi" class="level2">
 <h2 class="anchored" data-anchor-id="ncbi">NCBI</h2>
-<p>Previously, we looked NCBI reference genomes. Besides genomes, it also contains many different sets of tools and data that can come in handy in a multitude of situations, for now we will look at experiments and associated raw sequencing data in Gene Expression Omnibus(GEO) and Sequence Read Archive (SRA). GEO contains functional genomics experiments, which includes metadata and experimental results. SRA is the sequence archive that contains the raw reads. GEO can help us search for studies and look at their results while SRA can help us search for specific data types.</p>
+<p>The <a href="https://www.ncbi.nlm.nih.gov/">NCBI</a> website is a comprehensive resource for biological information based in the United States. It provides a wide range of tools and databases, including those for sequence analysis, gene annotation, and functional genomics.</p>
+<p>Sequencing data is split between two main repositories: Gene Expression Omnibus (GEO) and Sequence Read Archive (SRA). GEO contains data from functional genomics experiments, including metadata and experimental results, while SRA is explicitly for raw sequencing reads.</p>
 <section id="geo" class="level3">
 <h3 class="anchored">GEO</h3>
-<p><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a> is a public repository for functional genomics data. It contains data from experiments such as gene expression profiling, RNA-seq, microarrays, epigenomics, and other high-throughput assays. To search in the GEO database, click <a href="https://www.ncbi.nlm.nih.gov/gds/">“Search for Studies at GEO DataSets”</a>. Now we can search the database for things that are of interest for us.</p>
+<p><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a> (Gene Expression Omnibus) is a public repository for functional genomics data. It contains data from experiments such as gene expression profiling, RNA-seq, microarrays, epigenomics, and other high-throughput assays..</p>
+<p>To search the GEO database, click “Search for Studies at GEO DataSets” from the home page or navigate to the <a href="https://www.ncbi.nlm.nih.gov/gds/">Geo DataSets</a> page.</p>
 <div class="challenge">
 <h2 class="anchored" data-anchor-id="geo">
 <i class="fas fa-pencil-alt"></i> Challenge:
@@ -249,18 +261,17 @@ Solution
 <h2 class="anchored">
 <i class="far fa-eye"></i> Solution:
 </h2>
-<p>To search, just type ‘HeLa’ in the search bar. Once the results are available, you can filter the results by publication date. There is also a filter for <code>Sample count</code>. If you do not see this option, click <code>Show additional filters</code>. Set the sample count to between 100 and 200.</p>
+<p>To search, just type ‘HeLa’ in the search bar. Once the results are available, you can filter the results by publication date on the left hand side. There is also a filter for <code>Sample count</code>. If you do not see this option, click <code>Show additional filters</code>. Set the sample count to between 100 and 200.</p>
 </div>
 </details>
 </div>
-<p><br>
-Click any of the results to get more information, results can include a summary of experiment done, platforms used and links to data. GEO focuses on the biological experiment, associated samples and the resulting measurements.</p>
-<p>Often when looking for public data, the starting point will be a publication of interest. We have an example of a <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12999471/">paper</a> that might be of interest</p>
+<p>GEO has an advanced set of filters that allow you to search by specific metadata (organism, cell type etc.) and keywords. Often when looking for published data, the starting point will be a publication of interest rather than the GEO database. When data is published in a paper, the authors will often include a link to the GEO record. This is usually in the form of a unique <strong>GEO accession</strong> number, which can be used to find the data.</p>
 <div class="challenge">
 <h2 class="anchored">
 <i class="fas fa-pencil-alt"></i> Challenge:
 </h2>
-<p>Open the paper. Take a look at the data availability. Can you find this dataset in GEO?</p>
+<p>Open <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/">https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/</a>, a paper titled “Molecular basis of polyadenylated RNA fate determination in the nucleus”.</p>
+<p>Take a look at the data availability section. Can you find this dataset in GEO?</p>
 <details>
 <summary>
 Solution
@@ -270,16 +281,23 @@ Solution
 <h2 class="anchored">
 <i class="far fa-eye"></i> Solution:
 </h2>
-<p>Generally towards the end of the paper there will be a section with <code>Data Availability</code>. In this case there are three different datasets for this paper within GEO. Either click the links or copy the ID and search for it in GEO to find the data.</p>
+<p>Generally towards the end of the paper there will be a section with <code>Data Availability</code>. Find the GEO accession code. Either click the link or copy the ID and search for it in GEO.</p>
 </div>
 </details>
 </div>
-<p><br>
-GEO mainly focuses on the biological experiment, associated metadata and resulting measurements. When the underlying experiment involves sequencing, GEO records often provide links to the corresponding raw sequencing data. These raw sequencing reads are typically stored in the SRA.</p>
+<p>The accession number will take you to a <strong>GEO series</strong> record with a summary of the experiment, the overall design and various links to associated samples and platforms. The GEO database is structured into three main levels:</p>
+<ul>
+<li><code>Series</code>: A Series record represents a complete experiment, including the associated samples and platforms used. GEO series are assigned unique accession numbers beginning with “GSE” (e.g., GSE285333).</li>
+<li><code>Sample</code>: A Sample record describes an individual sample, including the conditions and material from which the data were generated (organism, tissue type, cell line, genotype, condition) and analysis methods used to process the data. GEO samples are assigned unique accession numbers beginning with “GSM” (e.g., GSM8700904).</li>
+<li><code>Platform</code>: A Platform record describes the technology used to generate the data, such as a specific microarray or sequencing platform (e.g.&nbsp;Illumina NextSeq 2000). GEO platforms are assigned unique accession numbers beginning with “GPL” (e.g., GPL30173).</li>
+</ul>
+<p>A series record in GEO provides a comprehensive overview of an experiment as well as all of the sample and platform records associated with the study. It should also contain a citation to any publications that have resulted from the study. At the bottom of the record you will find some files associated with the study. These files can be downloaded and contain data associated with the entire study (e.g.&nbsp;gene expression matrices for all samples).</p>
+<p>A GEO series can also be part of a <strong>super series</strong>, which is a collection of related series that share a common theme or experimental design. This is common in large-scale studies that utilise multiple technologies e.g.&nbsp;RNA-seq and ChIP-seq.</p>
+<p>Click on one of the samples to view a <strong>sample</strong> record and explore the associated metadata. At the bottom of the record, you will find links to data files associated with the sample. These are usually processed data files used in the final analysis e.g.&nbsp;a count table or genome browser tracks. Under <em>Relations</em> you will find a link to the corresponding SRA record, which contains the raw sequencing reads for the sample.</p>
 </section>
 <section id="sra" class="level3">
 <h3 class="anchored">SRA</h3>
-<p><a href="https://www.ncbi.nlm.nih.gov/sra/">SRA</a> is a repository for raw sequencing reads generated from a wide range of experimental approaches. These include RNA sequencing and other expression-related experiments, whole-genome and targeted sequencing, DNA methylation assays, Hi-C experiments, and many other high-throughput sequencing applications.</p>
+<p><a href="https://www.ncbi.nlm.nih.gov/sra/">SRA</a> (Sequence Read Archive) is a repository for raw sequencing reads generated from a wide range of experimental approaches. These include RNA sequencing and other expression-related experiments, whole-genome and targeted sequencing, DNA methylation assays, Hi-C experiments, and many other long and short high-throughput sequencing applications.</p>
 <p>The data are organised into four main levels:</p>
 <ul>
 <li><code>Study</code> provides overarching information about the research project or investigation and groups related samples and experiments.</li>
@@ -292,7 +310,7 @@ GEO mainly focuses on the biological experiment, associated metadata and resulti
 <h2 class="anchored" data-anchor-id="sra">
 <i class="fas fa-pencil-alt"></i> Challenge:
 </h2>
-<p>Same as for GEO, search for ‘HeLa’ in the search bar. How many results do you find? How do these results differ from GEO?</p>
+<p>Open the SRA home page and search for ‘HeLa’ in the search bar. How many results do you find? How do these results differ from GEO?</p>
 <details>
 <summary>
 Solution
@@ -302,45 +320,160 @@ Solution
 <h2 class="anchored">
 <i class="far fa-eye"></i> Solution:
 </h2>
-<p>SRA is different from GEO in the way that now we are looking at single run results, instead of an overview of a complete experiment.</p>
+<p>SRA differs from GEO as a search reports single run results, instead of an overview of a complete experiment.</p>
 </div>
 </details>
 </div>
-<p><br>
-The data can be filtered on things like source or sequencing platform, this can help finding specific sample types. Once a dataset of interest has been found, the next step is to download it. In SRA, this is a two step approach. The main thing we need to download is a runID.<br>
-Looking at the GEO results, at the bottom of the page there is a link to <code>SRA Run Selector</code>. This will lead to an overivew page, that contains a list of runID which can all be downloaded. As an example dataset, we will use a dataset which has a number of different HeLa cells sequenced separately. The data can be found <a href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP331615">here</a>. Lets download the first record.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> prefetch SRR15372746</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Prefetch grabs all the information for a run. To download the fastq files related to the run, the following command can be used.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> fasterq-dump SRR15372746/SRR15372746.sra</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This will download the data for a single run. To download all the samples in dataset, the accession list can be downloaded from the SRA run page. An accession list will contain all the run IDs which are within a study. To then download the full set, this file can be used.</p>
-<p><em><strong>Note:</strong> You do not have to run these commands now</em></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> prefetch <span class="at">--option-file</span> ACCESSIONLIST.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>The SRA file will be downloaded for each one of the runs. To then download all the fastq files, a for loop can be used.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> for i in <span class="pp">*</span>/<span class="pp">*</span>.sra</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">do</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      <span class="ex">fasterq-dump</span> <span class="va">$i</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Again, this will take a while, however at the end of the command, all the data for the study should be downloaded.</p>
+<p>The filters on the left side of the page allow you to refine your search by specific metadata like <em>source</em> or sequencing <em>platform</em>. You can also search for specific accession numbers assigned to a study, sample, experiment, or run.</p>
+<div class="challenge">
+<h2 class="anchored">
+<i class="fas fa-pencil-alt"></i> Challenge:
+</h2>
+<p>Search for SRA records associated with the study SRP331615</p>
+<ul>
+<li>How many experiments are associated with this study?</li>
+</ul>
+<p>Select the first experiment (SRX11675316).</p>
+<ul>
+<li>How many runs are in this experiment?</li>
+<li>How many reads (spots) are in the sequencing run?</li>
+<li>Is it single or paired end sequencing?</li>
+<li>What other metadata is there?</li>
+</ul>
+<details>
+<summary>
+Solution
+</summary>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<h2 class="anchored">
+<i class="far fa-eye"></i> Solution:
+</h2>
+<ul>
+<li>There is 1 run (SRR15372746)</li>
+<li>27,459,178 reads</li>
+<li>Paired end sequencing</li>
+<li>Library information and links to the associated sample and study</li>
+</ul>
+</div>
+</details>
+</div>
+<p>Each sequencing run contains a unique identifier (run ID) and is associated with a specific experiment. The run record contains information about the sequencing run, including the number of reads, read length, and sequencing platform used. It also provides links to download the raw sequencing data in various formats.</p>
+<div class="challenge">
+<h2 class="anchored">
+<i class="fas fa-pencil-alt"></i> Challenge:
+</h2>
+<p>Click on the link to view the <strong>run</strong> record (SRR15372746). This record contains information about the sequencing run, including the number of reads, read length, and sequencing platform used. It also provides links to download the raw sequencing data in various formats.</p>
+<ul>
+<li>What is the read length?</li>
+<li>Find the name, sequence and quality scores of the first read</li>
+</ul>
+<details>
+<summary>
+Solution
+</summary>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<h2 class="anchored">
+<i class="far fa-eye"></i> Solution:
+</h2>
+<ul>
+<li>150b (L=150)</li>
+<li>Click on <code>Reads</code> tab. Select <code>quality scores</code> to see Phred scores.</li>
+</ul>
+</div>
+</details>
+</div>
+<div class="challenge">
+<h2 class="anchored">
+<i class="fas fa-pencil-alt"></i> Challenge:
+</h2>
+<p>Go back to the publication we were looking at earlier: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/">https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/</a></p>
+<p>Can you navigate to the SRA run record for the first sample in the study?</p>
+<details>
+<summary>
+Solution
+</summary>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<h2 class="anchored">
+<i class="far fa-eye"></i> Solution:
+</h2>
+<p>GEO series -&gt; GEO sample -&gt; SRA experiment -&gt; SRA run</p>
+<p>GSE301785 -&gt; GSM9089639 -&gt; SRX29561782 -&gt; SRR34397334</p>
+</div>
+</details>
+</div>
+</section>
+<section id="sra-toolkit" class="level3">
+<h3 class="anchored">SRA toolkit</h3>
+<p>Most sequencing data is too large to be downloaded through a web browser, so most of the time a direct download is not available. The best way to download data is through the SRA toolkit. The SRA toolkit is a set of command line tools that allow you to download and process sequencing data from the SRA database. The toolkit can be installed on Linux, MacOS and Windows.</p>
+<p>Data is stored in a compressed format called SRA format. The SRA toolkit can be used to convert the SRA files into more common formats such as FASTQ or BAM. The toolkit also provides tools for downloading and managing SRA data, including the ability to download entire studies or specific runs.</p>
+<p>Let’s download the the sequencing run <a href="https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&amp;acc=SRR15372746&amp;display=metadata">SRR15372746</a> we looked at earlier. To download the data, we will use the <code>prefetch</code> command. This command will download the SRA file for the run.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">prefetch</span> SRR15372746</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We now want to convert this to a FASTQ file to make it compatible with standard bioinformatics tools. To do this, we will use the <code>fasterq-dump</code> command.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fasterq-dump</span> SRR15372746/SRR15372746.sra</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If we want to download multiple samples from SRA, we can use an accession list, a text file that contains a list of accession numbers. We can create this file manually, or use the <strong>SRA Run Selector</strong> to generate it for us. The SRA Run Selector is a web-based tool that allows users to select and download specific runs from the SRA database. It can be accessed from within the SRA or GEO databases.</p>
+<div class="challenge">
+<h2 class="anchored" data-anchor-id="sra-toolkit">
+<i class="fas fa-pencil-alt"></i> Challenge:
+</h2>
+<p>Go back to the GEO series <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE301785">GSE301785</a>. At the bottom of the page, there is a link to the SRA Run Selector.</p>
+<p>See if you can download an accession list for all of the WT RNA-seq samples from HelaKyoto cells, sequenced on the Illumina NextSeq 2000 platform. How many samples are there in total?</p>
+<details>
+<summary>
+Solution
+</summary>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<h2 class="anchored">
+<i class="far fa-eye"></i> Solution:
+</h2>
+<ul>
+<li>Use the filters on the left hand side to filter the samples.</li>
+<li>There should be 15 in total</li>
+<li>Select all of the samples</li>
+<li>Click the <code>Accession List</code> button to download the list of accession numbers.</li>
+</ul>
+</div>
+</details>
+</div>
+<p><em><strong>Note:</strong> Do not run the commands below this is an example only</em></p>
+<p>We can now provide this accession list as an input file to the <code>prefetch</code> command to download all the SRA files for the runs in the list.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>## DO NOT RUN</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>prefetch --option-file SRR_Acc_List.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The SRA files can be converted into FASTQ files using the <code>fasterq-dump</code> command. You can use a for loop to run the command for all SRA files or some other parallelisation strategy.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## DO NOT RUN</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="pp">*</span>/<span class="pp">*</span>.sra</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">do</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">fasterq-dump</span> <span class="va">$i</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="ena" class="level2">
-<h2 class="anchored" data-anchor-id="ena">ENA</h2>
-<p>ENA similar to SRA contains raw data. ENA covers more than just raw sequencing reads, it also contains assembly information and functional annotations.<br>
-</p>
-<p>Data within the archive is very similarly organised as SRA into several interconnected object types. <strong>Study</strong> represents the overall research project and contains information such as the study description, data ownership and release information. A <strong>Sample</strong> represents a biological sample included in a study. It can contain information such as the organism, sample type, collection location and other sample-specific metadata. An <strong>Experiment</strong> describes how a sample was prepared and sequenced. It links the Sample to the Study and contains information about the sequencing experiment, such as the library and sequencing platform. A <strong>Run</strong> represents an individual sequencing run and contains the raw sequencing reads generated by that run. Finally, an <strong>Analysis</strong> represents processed data derived from sequencing data, such as genome assemblies or sequence annotations. Below an overview of how the data is structured.</p>
+<section id="ena-european-nucleotide-archive" class="level2">
+<h2 class="anchored" data-anchor-id="ena-european-nucleotide-archive">ENA (European Nucleotide Archive)</h2>
+<p>The ENA is a sequencing repository hosted by the European Bioinformatics Institute (EBI). Like NCBI, it contains raw sequencing reads, assembly information and functional annotations.</p>
+<p>Data within the archive is organised into several interconnected object types, similar to SRA:</p>
+<ul>
+<li><code>Study</code>: Represents the overall research project and contains information such as the study description, data ownership and release information.</li>
+<li><code>Sample</code>: Represents a biological sample included in a study. It can contain information such as the organism, sample type, collection location and other sample-specific metadata.</li>
+<li><code>Experiment</code>: Describes how a sample was prepared and sequenced. It links the Sample to the Study and contains information about the sequencing experiment, such as the library and sequencing platform.</li>
+<li><code>Run</code>: Represents an individual sequencing run and contains the raw sequencing reads generated by that run.</li>
+<li><code>Analysis</code>: Contains processed data derived from raw sequencing data, such as genome assemblies or sequence annotations. Below is an overview of how the data is structured.</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/metadata_model-new-1024x516.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
-<section id="search" class="level3">
-<h3 class="anchored">Search</h3>
-<p>The <a href="https://www.ebi.ac.uk/ena/browser/search">search</a> can be limiting, however we can do text searches. Search for the term <code>HeLa</code>. Initially it might say no results were found, however results should start showing up shortly after. At the top of the screen, a bar will indicate if all results are given or if the search is still ongoing. Once the results are in, they are structured into different groups. To look at the full results for each group, click on link on the left.</p>
+<section id="searching-the-ena" class="level3">
+<h3 class="anchored">Searching the ENA</h3>
+<p>The ENA <a href="https://www.ebi.ac.uk/ena/browser/search">search</a> function allows free text and advanced parameter searches. Search for the term <code>HeLa</code>. Initially it might say no results were found, however results should start showing up shortly after. At the top of the screen, a bar will indicate if all results are given or if the search is still ongoing. Once the results are in, they are structured into different categories. To look at the full results for each category, click on the link on the left.</p>
 <div class="challenge">
-<h2 class="anchored" data-anchor-id="search">
+<h2 class="anchored" data-anchor-id="searching-the-ena">
 <i class="fas fa-pencil-alt"></i> Challenge:
 </h2>
-<p>Take a look at all projects related to <code>HeLa</code>. How many projects are related to this term?</p>
+<p>Take a look at all the projects related to <code>HeLa</code>. How many projects are related to this term?</p>
 <details>
 <summary>
 Solution
@@ -350,17 +483,20 @@ Solution
 <h2 class="anchored">
 <i class="far fa-eye"></i> Solution:
 </h2>
-<p>Click on Project on the left side of the screen. In total there are 2,515 projects related to HeLa.</p>
+<p>Click on Project on the left side of the screen. At the time of writing there were 2,515 projects related to HeLa.</p>
 </div>
 </details>
 </div>
-<p><br>
-Filtering the results within ENA is much more tricky than GEO or SRA. In general it is easier to search for data using IDs from publications. For many studies, data that is in NCBI will also be ENA. The link to ENA is often given in the form of a BioprojectID. Lets take a look at the study we looked at in SRA, but now in ENA.</p>
+<p>For many studies, data that is in NCBI will also be in ENA. The databases are linked by a <strong>BioprojectID</strong>.</p>
 <div class="challenge">
 <h2 class="anchored">
 <i class="fas fa-pencil-alt"></i> Challenge:
 </h2>
-<p>Take a look at the <a href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP331615">SRA results</a> and find the BioProject. Search for <code>PRJNA752995</code> in ENA. How many samples are available for this study in ENA?</p>
+<ol type="1">
+<li>Return to the SRA Run Selector for <a href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA1287562&amp;o=acc_s%3Aa">SRP598636</a> and find the BioProject ID.</li>
+<li>Search for this identifier in ENA.</li>
+<li>How many samples are available for this study in ENA?</li>
+</ol>
 <details>
 <summary>
 Solution
@@ -370,14 +506,25 @@ Solution
 <h2 class="anchored">
 <i class="far fa-eye"></i> Solution:
 </h2>
-<p>Put the ID within the text search or in the accession search at the top of the page. In total there are 15 samples within this project.</p>
+<p>The BioProjectID is PRJNA1287562. Search for this in ENA and select the project. You should see the same 125 samples.</p>
 </div>
 </details>
 </div>
-<p><br>
-The download for ENA is very straightforward. At the top of the FASTQ column there is a <code>Download All</code> button. If we press this button, a small script will be generated that we can run to download all the data. The script can be copied to server and run.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bash SCRIPT.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>When downloading a study, you will only need to use one of the methods to download the data. Use the method whichever has your preference. Once the data is download, it is time for QC.</p>
+<p>Downloading data from ENA is very straightforward. At the top of the FASTQ column there is a <code>Download All</code> button, or you can select the files you want and hit <code>Download Script</code>. A small script will be generated that we can run to download the data. The script can be copied to the server and run.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bash <span class="op">&lt;</span>script_name<span class="op">&gt;</span>.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="key-points">
+<h2 class="anchored">
+<i class="fas fa-thumbtack"></i> Key Points:
+</h2>
+<ul>
+<li>NCBI and ENA are two of the most commonly used public sequencing repositories</li>
+<li>Data can exist in either or both repositories</li>
+<li>Data in these repositories is highly organised into interconnected object types, including studies, samples, experiments, runs and analyses</li>
+<li>Complex metadata is associated with each object type and ensures that the data adheres to FAIR data principles</li>
+<li>Data can be downloaded from these repositories using the SRA toolkit or download scripts generated by ENA</li>
+</ul>
+</div>
+<p>Now that we have some data, it’s time to take a look and perform some quality control checks!</p>
 
 
 </section>

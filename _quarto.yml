@@ -3,19 +3,19 @@ project:
   output-dir: docs
 
 website:
-  title: "Exploring Public Data"
+  title: "High Throughput Sequencing Data"
   sidebar:
     contents:
       - href: index.qmd
         text: Home
       - href: 01_Sequencing.qmd
-        text: Sequencing Intro
+        text: HTS Data
       - href: 02_PublicDatasets.qmd
-        text: Public Databases
+        text: Sequencing Databases
       - href: 03_QC.qmd
         text: Data QC
       - href: 04_ReferenceGenomes.qmd
-        text: References
+        text: Reference Genomes
         
 format:
   html:

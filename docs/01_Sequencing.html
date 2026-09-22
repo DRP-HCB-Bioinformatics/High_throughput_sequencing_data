@@ -2,23 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exploring Public Sequencing Data – Exploring Public Data</title>
+<title>High Throughput Sequencing Data</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -43,14 +40,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -79,6 +76,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="challengestyles.css">
 </head>
@@ -92,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_Sequencing.html">Sequencing Intro</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_Sequencing.html">HTS Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -127,13 +153,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_Sequencing.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Sequencing Intro</span></a>
+ <span class="menu-text">HTS Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02_PublicDatasets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Public Databases</span></a>
+ <span class="menu-text">Sequencing Databases</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -145,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_ReferenceGenomes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
+ <span class="menu-text">Reference Genomes</span></a>
   </div>
 </li>
     </ul>
@@ -158,9 +184,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#short-reads" id="toc-short-reads" class="nav-link active" data-scroll-target="#short-reads">Short Reads</a></li>
-  <li><a href="#long-reads" id="toc-long-reads" class="nav-link" data-scroll-target="#long-reads">Long Reads</a></li>
-  <li><a href="#data-files" id="toc-data-files" class="nav-link" data-scroll-target="#data-files">Data files</a></li>
+  <li><a href="#short-reads" id="toc-short-reads" class="nav-link active" data-scroll-target="#short-reads">Short Reads</a>
+  <ul class="collapse">
+  <li><a href="#single-end-sequencing" id="toc-single-end-sequencing" class="nav-link" data-scroll-target="#single-end-sequencing">Single end sequencing</a></li>
+  <li><a href="#paired-end-reads" id="toc-paired-end-reads" class="nav-link" data-scroll-target="#paired-end-reads">Paired end reads</a></li>
+  </ul></li>
+  <li><a href="#long-reads" id="toc-long-reads" class="nav-link" data-scroll-target="#long-reads">Long Reads</a>
+  <ul class="collapse">
+  <li><a href="#pacbio" id="toc-pacbio" class="nav-link" data-scroll-target="#pacbio">PacBio</a></li>
+  <li><a href="#oxford-nanopore" id="toc-oxford-nanopore" class="nav-link" data-scroll-target="#oxford-nanopore">Oxford Nanopore</a></li>
+  </ul></li>
+  <li><a href="#single-cell-sequencing" id="toc-single-cell-sequencing" class="nav-link" data-scroll-target="#single-cell-sequencing">Single cell sequencing</a></li>
+  <li><a href="#data-files" id="toc-data-files" class="nav-link" data-scroll-target="#data-files">Data files</a>
+  <ul class="collapse">
+  <li><a href="#sequencing-quality" id="toc-sequencing-quality" class="nav-link" data-scroll-target="#sequencing-quality">Sequencing quality</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -169,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exploring Public Sequencing Data</h1>
+<h1 class="title">High Throughput Sequencing Data</h1>
 </div>
 
 
@@ -187,43 +225,81 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="https://kit.fontawesome.com/ece750edd7.js" crossorigin="anonymous"></script>
-<p>Sequencing can be divided into two main branches: short read and long read sequencing. Each has different providers and specifications, which are described in the sections below.</p>
+<p>High Throughput Sequencing (HTS) can be divided into two main branches: short read and long read sequencing. Each has different providers and specifications, which are described in the sections below.</p>
 <section id="short-reads" class="level2">
 <h2 class="anchored" data-anchor-id="short-reads">Short Reads</h2>
-<p>Short read sequencing, also known as second generation sequencing, involves breaking strands of DNA or RNA into smaller fragments, typically ranging from approximately 50–300 bp, and sequencing these fragments. Short read sequencing generally provides highly accurate reads at a relatively low cost, making it a widely used approach across a broad range of applications. Though there are several different providers, short read sequencing can create two main types of reads: single end or paired end reads.</p>
-<ul>
-<li>Single end sequencing: As the name suggests, single end sequencing involves sequencing a DNA or RNA fragment from one end only. This is the simplest and most straightforward sequencing approach, but provides less information about the fragment compared with paired end sequencing.</li>
-<li>Paired end reads: This involves sequencing the same fragment from both ends, generating two reads per fragment. These two fragments are revered to as forward (or R1) and reverse (or R2) reads. Depending on the size of the fragments, the forward and reverse read can overlap each other. Paired end sequencing is particularly useful for applications such as the detection of genomic rearrangements, gene fusions, novel transcripts, and other structural or transcriptomic features.</li>
-</ul>
+<p>Short read sequencing, also known as second generation sequencing, involves breaking strands of DNA or RNA into smaller fragments, typically ranging from 50–300 bp, and sequencing these fragments. Short read sequencing generally provides highly accurate reads at a relatively low cost, making it a widely used approach across a broad range of applications. Though there are several different providers, short read sequencing can create two main types of reads: single end or paired end reads.</p>
+<section id="single-end-sequencing" class="level3">
+<h3 class="anchored" data-anchor-id="single-end-sequencing">Single end sequencing</h3>
+<p>As the name suggests, single end sequencing involves sequencing a DNA or RNA fragment from one end only. This is the simplest and most straightforward sequencing approach, but provides less information about the fragment compared with paired end sequencing. Single read sequencing is often adequate for applications such as gene expression analysis, where the primary goal is to quantify the abundance of transcripts, or for applications where the genomic context of the reads is not critical.</p>
+</section>
+<section id="paired-end-reads" class="level3">
+<h3 class="anchored" data-anchor-id="paired-end-reads">Paired end reads</h3>
+<p>This involves sequencing the same fragment from both ends, generating two reads per fragment. These two fragments are refered to as forward (or R1) and reverse (or R2) reads. Depending on the size of the fragments, the forward and reverse read can overlap each other. Paired end sequencing is particularly useful for applications such as the detection of genomic rearrangements, repeats, gene fusions, novel transcripts, and other structural or transcriptomic features.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-3425083898.png" class="img-fluid figure-img" width="500"></p>
+<p><img src="images/se_pe.png" class="img-fluid figure-img" width="500"></p>
 <figcaption><em><strong>Figure 1:</strong> Visual representation of single end sequencing versus paired end sequencing. The red arrows indicate the forward (or R1) reads, the blue arrow represents the reverse (or R2) read.</em></figcaption>
 </figure>
 </div>
-<p>Different platforms are available for short reads sequencing, these platforms employing different approaches to create short reads. In most cases, sequencing is based on sequencing by synthesis, sequencing by ligation, or sequencing by binding. The most used platforms are discussed below.</p>
+<p>Different platforms are available for short read sequencing, these platforms employing different approaches to create short reads. In most cases, sequencing is based on sequencing by synthesis, sequencing by ligation, or sequencing by binding. The most used platforms are discussed below.</p>
 <ul>
 <li><a href="https://www.illumina.com/">Illumina</a>: Currently the dominant provider in the short read sequencing market and has been established in the field for many years. As a result, a large proportion of publicly available short read sequencing data has been generated using Illumina platforms.</li>
-<li><a href="https://www.elementbiosciences.com/">Element Biosciences</a>: Relatively new to the sequencing market that has grown rapidly in recent years. Element’s platforms offer highly accurate quality sequencing while aiming to provide a lower cost per read compared with established Illumina platforms.</li>
+<li><a href="https://www.elementbiosciences.com/">Element Biosciences</a>: Relatively new to the sequencing market and has grown rapidly in recent years. Element’s platforms offer highly accurate quality sequencing while aiming to provide a lower cost per read compared with established Illumina platforms.</li>
 <li><a href="https://www.ultimagenomics.com/">Ultima Genomics</a>: Another relatively new provider that is rapidly gaining momentum. Ultima focuses on highly scalable sequencing and aims to substantially reduce sequencing costs compared with traditional short read platforms.</li>
 <li><a href="https://mgi-tech.eu/">MGI</a>: A major sequencing provider with a particularly strong presence in Asia. Its platforms are also available in selected laboratories and sequencing facilities in Europe. It provides highly accurate short reads for a reduced cost compared to Illumina.</li>
 </ul>
 <p>For a long time, Illumina dominated the short read sequencing field. Though the shift is slow, more and more labs are shifting to other platforms for short read sequencing needs.</p>
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fCd6B5HRaZ8?si=fCW7-TZomZQrwgQU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div>
+</section>
 </section>
 <section id="long-reads" class="level2">
 <h2 class="anchored" data-anchor-id="long-reads">Long Reads</h2>
 <p>Long read sequencing, also known as third generation sequencing, focuses on generating longer reads than short read technologies. The two main platforms dominating the long read sequencing field are PacBio and Oxford Nanopore Technologies (ONT). Although both technologies are capable of generating reads that are considerably longer than those produced by short read platforms, they differ in their underlying approaches. Long read platforms generate single end reads.</p>
-<ul>
-<li><a href="https://www.pacb.com/">PacBio</a> focuses on generating highly accurate long reads, typically with read lengths around 10–25 kb. It combines long read sequencing with high accuracy by sequencing the same DNA molecule multiple times and generating a highly accurate consensus sequence. In addition to determining the DNA sequence, PacBio sequencing can provide information about the kinetics of nucleotide incorporation, which can be used to identify DNA modifications such as methylation without requiring a separate methylation-specific sequencing assay.</li>
-<li><a href="https://nanoporetech.com/">Oxford Nanopore</a> has a strong emphasis on ultra-long reads and real-time sequencing. ONT can generate extremely long reads, with reads extending to megabase-scale lengths and, under specialised conditions, exceeding several megabases. The ability to generate ultra-long reads can be particularly valuable for resolving large structural variants, repetitive regions, complex genomic regions, and complete chromosome-scale assemblies. ONT sequencing can also detect DNA methylation and other base modifications directly from the sequencing signal. Another major advantage of ONT is its portability and flexibility. The company’s smallest sequencer, the MinION, is approximately the size of a USB stick and can be connected directly to a computer.</li>
-</ul>
+<section id="pacbio" class="level3">
+<h3 class="anchored" data-anchor-id="pacbio">PacBio</h3>
+<p><a href="https://www.pacb.com/">PacBio</a> focuses on generating highly accurate long reads, typically with read lengths around 10–25 kb. It combines long read sequencing with high accuracy by sequencing the same DNA molecule multiple times and generating a highly accurate consensus sequence. In addition to determining the DNA sequence, PacBio sequencing can provide information about the kinetics of nucleotide incorporation, which can be used to identify DNA modifications such as methylation without requiring a separate methylation-specific sequencing assay.</p>
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7yYPHatccgw?si=P5FwouYl3Zyx9dSy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div>
+</section>
+<section id="oxford-nanopore" class="level3">
+<h3 class="anchored" data-anchor-id="oxford-nanopore">Oxford Nanopore</h3>
+<p><a href="https://nanoporetech.com/">Oxford Nanopore</a> has a strong emphasis on ultra-long reads and real-time sequencing. ONT can generate extremely long reads, with reads extending to megabase-scale lengths and, under specialised conditions, exceeding several megabases. The ability to generate ultra-long reads can be particularly valuable for resolving large structural variants, repetitive regions, complex genomic regions, and complete chromosome-scale assemblies. ONT sequencing can also detect DNA methylation and other base modifications directly from the sequencing signal. Another major advantage of ONT is its portability and flexibility. The company’s smallest sequencer, the MinION, is approximately the size of a USB stick and can be connected directly to a computer.</p>
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VxGliKyYuFQ?si=1AZqxS-I63KVEpkx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div>
+</section>
+</section>
+<section id="single-cell-sequencing" class="level2">
+<h2 class="anchored" data-anchor-id="single-cell-sequencing">Single cell sequencing</h2>
+<p>Single cell sequencing is a powerful technique that allows researchers to study individual cells, providing insights into cellular heterogeneity and enabling the identification of rare cell populations. Single cell sequencing can be performed using both short read and long read technologies, depending on the specific research goals and requirements. Single cell sequencing is not covered in this course.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/single_cell.png" class="img-fluid figure-img" data-align="center" width="500"></p>
+<figcaption><em><strong>Figure 2:</strong> Single cell sequencing (https://microbenotes.com/single-cell-sequencing/)</em></figcaption>
+</figure>
+</div>
 </section>
 <section id="data-files" class="level2">
 <h2 class="anchored" data-anchor-id="data-files">Data files</h2>
-<p>Although sequencing technologies and the resulting data can differ between providers, the file formats used to deliver sequencing data are largely standardised. The two main file formats encountered in sequencing workflows are <a href="https://en.wikipedia.org/wiki/FASTQ_format">FASTQ</a> and <a href="https://en.wikipedia.org/wiki/BAM_(file_format)">BAM</a> files. Both formats contain information about the sequenced DNA or RNA and the quality of the sequencing data. FASTQ files contain the sequence reads together with a quality score for each base, whereas BAM files can contain more information about each read. Both file types will be explored during the course.</p>
-<p>The quality of sequences is commonly represented using <a href="https://en.wikipedia.org/wiki/Phred_quality_score">Phred</a> quality scores. A Phred score provides an estimate of the probability that a base has been incorrectly identified, with higher scores indicating greater confidence in the base call. As a general rule, Q20 or higher is considered acceptable to good quality, while Q30 or higher is often used as a benchmark for high-quality sequencing data. However, what constitutes an acceptable quality score ultimately depends on the sequencing platform, application, and downstream analysis.</p>
+<p>Although sequencing technologies and output data can differ between providers, the file formats used to deliver sequencing data are largely standardised. The two main file formats encountered in sequencing workflows are <a href="https://en.wikipedia.org/wiki/FASTQ_format">FASTQ</a> and <a href="https://en.wikipedia.org/wiki/BAM_(file_format)">BAM</a>. Both formats contain information about the sequenced DNA or RNA and the quality of the sequencing data. FASTQ files contain the sequence reads together with a quality score for each base, whereas BAM files can contain more information about each read. Both file types will be explored during the course.</p>
+<section id="sequencing-quality" class="level3">
+<h3 class="anchored" data-anchor-id="sequencing-quality">Sequencing quality</h3>
+<p>Sequencing quality refers to the accuracy and reliability of the base calls made during the sequencing process. Each base in a sequencing read is assigned a quality score that reflects the confidence in the accuracy of that base call. Quality scores are affected by various factors, including the signal intensity, base-calling algorithms, and the overall performance of the sequencing platform.</p>
+<p>Sequencing quality is commonly represented using <a href="https://en.wikipedia.org/wiki/Phred_quality_score">Phred</a> quality scores. A Phred score provides an estimate of the probability that a base has been incorrectly identified, with higher scores indicating greater confidence in the base call. The Phred score (Q) is calculated using the formula below, where P is the probability of an incorrect base call.:</p>
+<p><span class="math display">\[
+\text{Phred score (Q)} = -10 \times \log_{10}(P)
+\]</span></p>
+<p>A Phred score of 20 (Q20) corresponds to a 1% chance of an incorrect base call, while a Phred score of 30 (Q30) corresponds to a 0.1% chance of an incorrect base call. As a general rule, Q20 or higher is considered acceptable to good quality, while Q30 or higher is often used as a benchmark for high-quality sequencing data. However, what constitutes an acceptable quality score ultimately depends on the sequencing platform, application, and downstream analysis.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
