@@ -158,5 +158,15 @@
     "crumbs": [
       "HTS Data"
     ]
+  },
+  {
+    "objectID": "03_QC.html#long-reads",
+    "href": "03_QC.html#long-reads",
+    "title": "Exploring Public Sequencing Data",
+    "section": "Long Reads",
+    "text": "Long Reads\nLooking at results from long read sequencing is slightly different from short sequencing. The biggest difference might be that reads will not all be similar lengths, however we do want to look at the quality of the data that has been generated. There are many different tools available to look at long read QC, today we will look at NanoPlot, part of NanoPack, which supports a number of different ways to QC long read data.\n\nNanoPlot\nSimilar to FastQC, NanoPlot creates a number of different plots to explore the generated long read data. For this, we have created a set of data to work with. The data come from genome sequencing which was sequenced on NanoPore, it has been downsampled to make sure we can take a look at the data without taking a long time.\nIf you are on the bifxcore servers, the following command will link the data to your folder.\n$ ln -s /library/training/DataQC/nanopore_small.fastq.gz ./\nIf you are on another server, the following command will download the data.\n$ wget https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/nanopore_small.fastq.gz\nOnce the data is available, NanoPlot can be run on the data.\n$ NanoPlot -t 8 --fastq nanopore_small.fastq.gz --loglength -o Nanopore_nanoplot --plots dot \nOnce this is done, the data can be downloaded using FileZilla again. The data is also available through this link.\n\n\n Challenge:\n\nTake a look at the results of NanoPlot results. Is there anything that stands out? How does this data differ from the Illumina data we looked at previously?\n\n\n\nWith NanoPore data, the quality of the data is generally lower than with Illumina. However the reads can become very long. This is great for assembly of genomes but the accuracy will not be helpful for all applications. PacBio data can be very different, we have prepared a NanoPlot for PacBio data as well.\n\n\n Challenge:\n\nTake a look at the results of PacBio results. Is there anything that stands out? How does this data differ from the Illumina and Nanopore data?",
+    "crumbs": [
+      "Data QC"
+    ]
   }
 ]
