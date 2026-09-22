@@ -22,15 +22,16 @@ If you are using the DRP-HCB Bioinformatics server for this course then all of t
 ::: resources
 <h2><i class="fas fa-save"></i> Required software</h2>
 
-- [FastQC](https://www.nano-editor.org/)
-- [FastQ Screen](https://github.com/alexdobin/STAR)
-- [MultiQC](https://www.htslib.org/)
-- [SRA toolkit](https://bedtools.readthedocs.io/en/stable/)
+- [sra-tools](https://github.com/ncbi/sra-tools)
+- [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+- [FastQ Screen](https://www.bioinformatics.babraham.ac.uk/projects/fastq_screen/)
+- [MultiQC](https://github.com/multiqc/multiqc)
+- [NanoPlot](https://github.com/wdecoster/nanoplot)
 
-An easy way to install is through [conda](https://continuumio-docs.readthedocs-hosted.com/miniconda/). Check out [our guide](https://drp-hcb-bioinformatics.github.io/DRP-HCB-Bioinformatics/software.html) and explore how to install and work with conda. Tools can then be installed by downloading [the setup (yml) file](https://raw.githubusercontent.com/DRP-HCB-Bioinformatics/Bioinformatics_on_the_Linux_command_line/refs/heads/main/env/BotLcl.yml) and running the following commands to install and activate the environment. 
+An easy way to install is through [conda](https://continuumio-docs.readthedocs-hosted.com/miniconda/). Check out [our guide](https://drp-hcb-bioinformatics.github.io/DRP-HCB-Bioinformatics/software.html) and explore how to install and work with conda. Tools can then be installed by downloading [the environment (yml) file](https://raw.githubusercontent.com/DRP-HCB-Bioinformatics/High_throughput_sequencing_data/refs/heads/main/env/htsd.yml) and running the following commands to install and activate the environment. 
 
 ``` bash
-wget https://raw.githubusercontent.com/DRP-HCB-Bioinformatics/Bioinformatics_on_the_Linux_command_line/refs/heads/main/env/BotLcl.yml
+wget https://raw.githubusercontent.com/DRP-HCB-Bioinformatics/High_throughput_sequencing_data/refs/heads/main/env/htsd.yml
 
 conda env create -f htsd.yml
 
