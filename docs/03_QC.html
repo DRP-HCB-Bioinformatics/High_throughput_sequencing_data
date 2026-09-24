@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,13 +12,10 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -78,14 +75,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d55ad538553833994e65ea0dc4f9e74e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-713b0136666c1ca4047413a70816f99a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b00097fbe245c0658e8e1284714b1aa3.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-96db90ed46136dc576a4b74167903618.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-96db90ed46136dc576a4b74167903618.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-96db90ed46136dc576a4b74167903618.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-91395b8b7253de3c6d7cc4b17dd32cce.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -403,7 +400,19 @@ Solution
 <p>We now have two different types of QC reports for our data. Run MultiQC again. You will need to include the <code>-f</code> argument to force it to overwrite the existing report.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">multiqc</span> <span class="at">-f</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>MultiQC finds two FastQC reports and two FastQ Screen reports in your analysis directory. Open the MultiQC report in your web browser to see the changes. MultiQC is compatible with reports from many different bioinformatics application (read trimming, mapping, quantification, variant calling etc.). This allows you to build an overall report as you proceed with your analysis.</p>
-<p>MultiQC really comes into it’s own when you have many samples and multiple reports. We have pre-computed a MultiQC report for all 15 samples in []. You can view it <a href="">here</a>.</p>
+<p>MultiQC really comes into it’s own when you have many samples and multiple reports. We have pre-computed a MultiQC report for 15 samples from GEO series GSE301785. You can view it <a href="https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/multiqc_multiple/multiqc_report.html">here</a>.</p>
+<div class="resources">
+<h2 class="anchored">
+<i class="fas fa-bell"></i> Discussion:
+</h2>
+<p>Take a look at the multiqc report.</p>
+<ul>
+<li>What differences can you see between R1 and R2</li>
+<li>Are there any samples that stand out from the others?</li>
+<li>Why are there large runs of G at the end of reads?</li>
+<li>Do these reads need to cleaned before downstream analysis?</li>
+</ul>
+</div>
 <div class="key-points">
 <h2 class="anchored">
 <i class="fas fa-thumbtack"></i> Key Points:
@@ -427,34 +436,51 @@ Solution
 </section>
 <section id="long-reads" class="level2">
 <h2 class="anchored" data-anchor-id="long-reads">Long Reads</h2>
-<p>Looking at results from long read sequencing is slightly different from short sequencing. The biggest difference might be that reads will not all be similar lengths, however we do want to look at the quality of the data that has been generated. There are many different tools available to look at long read QC, today we will look at <a href="https://github.com/wdecoster/NanoPlot">NanoPlot</a>, part of <a href="https://github.com/wdecoster/nanopack">NanoPack</a>, which supports a number of different ways to QC long read data.</p>
+<p>Quality control of long read sequencing is slightly different from short read sequencing. The biggest difference is that reads vary greatly in length. There are many different tools available for long read QC and today we will look at <a href="https://github.com/wdecoster/NanoPlot">NanoPlot</a>, part of the <a href="https://github.com/wdecoster/nanopack">NanoPack</a> package, which supports a number of different ways to QC long read data.</p>
 <section id="nanoplot" class="level3">
 <h3 class="anchored">NanoPlot</h3>
-<p>Similar to FastQC, NanoPlot creates a number of different plots to explore the generated long read data. For this, we have created a set of data to work with. The data come from genome sequencing which was sequenced on NanoPore, it has been downsampled to make sure we can take a look at the data without taking a long time.</p>
-<p>If you are on the bifxcore servers, the following command will link the data to your folder.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ln <span class="at">-s</span> /library/training/DataQC/nanopore_small.fastq.gz ./</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If you are on another server, the following command will download the data.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> wget https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/nanopore_small.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Once the data is available, NanoPlot can be run on the data.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> NanoPlot <span class="at">-t</span> 8 <span class="at">--fastq</span> nanopore_small.fastq.gz <span class="at">--loglength</span> <span class="at">-o</span> Nanopore_nanoplot <span class="at">--plots</span> dot </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Once this is done, the data can be downloaded using FileZilla again. The data is also available through <a href="https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/Nanopore_nanoplot/NanoPlot-report.html">this link</a>.</p>
-<div class="challenge">
+<p>Similar to FastQC, NanoPlot creates a number of different plots to summarise a long read FASTQ file. For this example, we have created a set of fastq reads from whole genome NanoPore sequencing. It has been downsampled to reduce the time required to process the data.</p>
+<p>First, create a new folder for the NanoPore data:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> nanopore_qc</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> nanopore_qc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you are on the Bioinformatics Core servers, the following command will link the data to your folder and save you from copying it.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /library/training/ASD/02_HTS/DataQC/nanopore_small.fastq.gz .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Otherwise, you can download the data from here:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/nanopore_small.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now run the <code>NanoPlot</code> command. You can ignore any of the warnings that are generated.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">NanoPlot</span> <span class="at">-t</span> 8 <span class="at">--fastq</span> nanopore_small.fastq.gz <span class="at">--loglength</span> <span class="at">-o</span> Nanopore_nanoplot <span class="at">--plots</span> dot </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>NanoPlot can take a number of different arguments.The <code>-t</code> argument specifies the number of threads to use, <code>--fastq</code> specifies the input fastq file, <code>--loglength</code> will log transform the read lengths for plotting, <code>-o</code> specifies the output folder and <code>--plots</code> specifies which plots to generate.</p>
+<div class="resources">
 <h2 class="anchored" data-anchor-id="nanoplot">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-bell"></i> Discussion:
 </h2>
-<p>Take a look at the results of NanoPlot results. Is there anything that stands out? How does this data differ from the Illumina data we looked at previously?</p>
+<p>Take a look at the NanoPlot report. Is there anything that stands out?</p>
+<ul>
+<li>What is the distribution of read lengths?</li>
+<li>What is the range of quality scores?</li>
+<li>Why is there a peak in the read length distribution at around 3,500 bp?</li>
+<li>How does this compare to the Illumina data we looked at previously?</li>
+</ul>
 </div>
-<p><br>
-</p>
-<p>With NanoPore data, the quality of the data is generally lower than with Illumina. However the reads can become very long. This is great for assembly of genomes but the accuracy will not be helpful for all applications. PacBio data can be very different, we have prepared a NanoPlot for <a href="bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/Nanopore_pacbio/NanoPlot-report.html">PacBio data</a> as well.</p>
-<div class="challenge">
+<p>Nanopore data is generally lower quality than Illumina short reads. However the reads can be very long. This is great for assembly of genomes but the accuracy can be limiting for other applications.</p>
+<p><strong>PacBio</strong> data can be very different, we have prepared a NanoPlot report for <a href="https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/PacBio_nanoplot/NanoPlot-report.html">PacBio data</a> for you to view.</p>
+<div class="resources">
 <h2 class="anchored">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-bell"></i> Discussion:
 </h2>
-<p>Take a look at the results of PacBio results. Is there anything that stands out? How does this data differ from the Illumina and Nanopore data?</p>
+<p>Take a look at the results of PacBio NanoPlot report. How does this differ to Nanopore data?</p>
 </div>
-<p><br>
-</p>
+<div class="key-points">
+<h2 class="anchored">
+<i class="fas fa-thumbtack"></i> Key Points:
+</h2>
+<ul>
+<li>Long read sequencing is particularly useful for genome assembly, structural variant detection, and resolving complex genomic regions that are difficult to analyze with short reads.</li>
+<li>Long read sequencing produces much longer reads than short read sequencing, but the quality of the reads is generally lower.</li>
+<li>Nanopore and PacBio are two different long read sequencing technologies, each with their own characteristics and quality profiles.</li>
+<li>NanoPlot is a tool that provides quality control checks for long read sequencing data</li>
+</ul>
+</div>
 
 
 </section>

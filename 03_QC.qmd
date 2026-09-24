@@ -221,7 +221,19 @@ multiqc -f .
 
 MultiQC finds two FastQC reports and two FastQ Screen reports in your analysis directory. Open the MultiQC report in your web browser to see the changes. MultiQC is compatible with reports from many different bioinformatics application (read trimming, mapping, quantification, variant calling etc.). This allows you to build an overall report as you proceed with your analysis. 
 
-MultiQC really comes into it's own when you have many samples and multiple reports. We have pre-computed a MultiQC report for all 15 samples in []. You can view it [here]().
+MultiQC really comes into it's own when you have many samples and multiple reports. We have pre-computed a MultiQC report for 15 samples from GEO series GSE301785. You can view it [here](https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/multiqc_multiple/multiqc_report.html).
+
+::: resources
+<h2><i class="fas fa-bell"></i> Discussion:</h2>
+
+Take a look at the multiqc report.
+
+- What differences can you see between R1 and R2
+- Are there any samples that stand out from the others?
+- Why are there large runs of G at the end of reads?
+- Do these reads need to cleaned before downstream analysis?
+
+:::
 
 ::: key-points
 <h2><i class="fas fa-thumbtack"></i> Key Points:</h2>
@@ -232,8 +244,8 @@ MultiQC really comes into it's own when you have many samples and multiple repor
 - FastQ Screen checks for potential contaminants in sequencing data by mapping reads against multiple genomes and libraries.
 - MultiQC combines results from multiple analyses into a single report.
 - Quality control checks need to be interpreted in the context of the specific sequencing application and biological sample being analysed.
-:::
 
+:::
 
 ::: exercise
 <h2><i class="fas fa-pencil-alt"></i> Final Exercise:</h2>
@@ -244,55 +256,71 @@ Find a public dataset of your choice. Download the fastq files and produce a qua
 
 ## Long Reads
 
-Looking at results from long read sequencing is slightly different from short sequencing. The biggest difference might be that reads will not all be similar lengths, however we do want to look at the quality of the data that has been generated. There are many different tools available to look at long read QC, today we will look at [NanoPlot](https://github.com/wdecoster/NanoPlot), part of [NanoPack](https://github.com/wdecoster/nanopack), which supports a number of different ways to QC long read data. 
+Quality control of long read sequencing is slightly different from short read sequencing. The biggest difference is that reads vary greatly in length. There are many different tools available for long read QC and today we will look at [NanoPlot](https://github.com/wdecoster/NanoPlot), part of the [NanoPack](https://github.com/wdecoster/nanopack) package, which supports a number of different ways to QC long read data.
 
 ### NanoPlot
 
-Similar to FastQC, NanoPlot creates a number of different plots to explore the generated long read data. For this, we have created a set of data to work with. The data come from genome sequencing which was sequenced on NanoPore, it has been downsampled to make sure we can take a look at the data without taking a long time.  
+Similar to FastQC, NanoPlot creates a number of different plots to summarise a long read FASTQ file. For this example, we have created a set of fastq reads from whole genome NanoPore sequencing. It has been downsampled to reduce the time required to process the data.
 
-If you are on the bifxcore servers, the following command will link the data to your folder. 
-
-``` bash
-$ ln -s /library/training/DataQC/nanopore_small.fastq.gz ./
-```
-
-If you are on another server, the following command will download the data. 
+First, create a new folder for the NanoPore data:
 
 ``` bash
-$ wget https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/nanopore_small.fastq.gz
+mkdir nanopore_qc
+cd nanopore_qc
 ```
 
-Once the data is available, NanoPlot can be run on the data.
+If you are on the Bioinformatics Core servers, the following command will link the data to your folder and save you from copying it. 
 
 ``` bash
-$ NanoPlot -t 8 --fastq nanopore_small.fastq.gz --loglength -o Nanopore_nanoplot --plots dot 
+ln -s /library/training/ASD/02_HTS/DataQC/nanopore_small.fastq.gz .
 ```
 
-Once this is done, the data can be downloaded using FileZilla again. The data is also available through [this link](https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/Nanopore_nanoplot/NanoPlot-report.html).
+Otherwise, you can download the data from here: 
 
-::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+``` bash
+wget https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/nanopore_small.fastq.gz
+```
 
-Take a look at the results of NanoPlot results. Is there anything that stands out? How does this data differ from the Illumina data we looked at previously?
+Now run the `NanoPlot` command. You can ignore any of the warnings that are generated.
+
+``` bash
+NanoPlot -t 8 --fastq nanopore_small.fastq.gz --loglength -o Nanopore_nanoplot --plots dot 
+```
+
+NanoPlot can take a number of different arguments.The `-t` argument specifies the number of threads to use, `--fastq` specifies the input fastq file, `--loglength` will log transform the read lengths for plotting, `-o` specifies the output folder and `--plots` specifies which plots to generate.
+
+::: resources
+<h2><i class="fas fa-bell"></i> Discussion:</h2>
+
+Take a look at the NanoPlot report. Is there anything that stands out?
+
+- What is the distribution of read lengths? 
+- What is the range of quality scores?
+- Why is there a peak in the read length distribution at around 3,500 bp?
+- How does this compare to the Illumina data we looked at previously?
 
 :::
 
-\
+Nanopore data is generally lower quality than Illumina short reads. However the reads can be very long. This is great for assembly of genomes but the accuracy can be limiting for other applications. 
 
-With NanoPore data, the quality of the data is generally lower than with Illumina. However the reads can become very long. This is great for assembly of genomes but the accuracy will not be helpful for all applications. PacBio data can be very different, we have prepared a NanoPlot for [PacBio data](bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/Nanopore_pacbio/NanoPlot-report.html) as well. 
+**PacBio** data can be very different, we have prepared a NanoPlot report for [PacBio data](https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/PacBio_nanoplot/NanoPlot-report.html) for you to view. 
 
-::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+::: resources
+<h2><i class="fas fa-bell"></i> Discussion:</h2>
 
-Take a look at the results of PacBio results. Is there anything that stands out? How does this data differ from the Illumina and Nanopore data?
+Take a look at the results of PacBio NanoPlot report. How does this differ to Nanopore data?
 
 :::
 
-\
+::: key-points
+<h2><i class="fas fa-thumbtack"></i> Key Points:</h2>
 
+- Long read sequencing is particularly useful for genome assembly, structural variant detection, and resolving complex genomic regions that are difficult to analyze with short reads.
+- Long read sequencing produces much longer reads than short read sequencing, but the quality of the reads is generally lower.
+- Nanopore and PacBio are two different long read sequencing technologies, each with their own characteristics and quality profiles.
+- NanoPlot is a tool that provides quality control checks for long read sequencing data
 
-
-
+:::
 
 
 
