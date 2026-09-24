@@ -101,8 +101,8 @@ Alternatively, you can download data to your own machine for viewing. Applicatio
 
 You can also view the precomputed output at the links below: 
 
-- [Forward reads](https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/fastqc/SRR15372746_1_fastqc.html)
-- [Reverse reads](https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/fastqc/SRR15372746_2_fastqc.html)
+- [Forward reads](https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/fastqc/SRR15372746_1_fastqc.html)
+- [Reverse reads](https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/fastqc/SRR15372746_2_fastqc.html)
 
 ::: resources
 <h2><i class="far fa-bell"></i> Discussion</h2>
@@ -260,7 +260,9 @@ Quality control of long read sequencing is slightly different from short read se
 
 ### NanoPlot
 
-Similar to FastQC, NanoPlot creates a number of different plots to summarise a long read FASTQ file. For this example, we have created a set of fastq reads from whole genome NanoPore sequencing. It has been downsampled to reduce the time required to process the data.
+Similar to FastQC, NanoPlot creates a number of different plots to summarise a long read FASTQ file. For this example, we have created a subset of fastq reads from whole genome NanoPore sequencing of *Escherichia coli E2348/69*. The data has been downsampled to reduce the time required to process the data.
+
+The full dataset is available from this [publication](https://pmc.ncbi.nlm.nih.gov/articles/PMC8495745/) and SRA run [SRR11434959](https://www.ncbi.nlm.nih.gov/sra/SRR11434959).
 
 First, create a new folder for the NanoPore data:
 
@@ -303,12 +305,14 @@ Take a look at the NanoPlot report. Is there anything that stands out?
 
 Nanopore data is generally lower quality than Illumina short reads. However the reads can be very long. This is great for assembly of genomes but the accuracy can be limiting for other applications. 
 
-**PacBio** data can be very different, we have prepared a NanoPlot report for [PacBio data](https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/PacBio_nanoplot/NanoPlot-report.html) for you to view. 
+### PacBio data
+
+This publication also included long reads from PacBio sequencing ([SRR11434954](https://www.ncbi.nlm.nih.gov/sra/SRR11434954)). PacBio data can look very different to Nanopore. We have prepared a [NanoPlot report](https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/PacBio_nanoplot/NanoPlot-report.html) for the PacBio reads for you to view. 
 
 ::: resources
 <h2><i class="fas fa-bell"></i> Discussion:</h2>
 
-Take a look at the results of PacBio NanoPlot report. How does this differ to Nanopore data?
+Take a look at the PacBio NanoPlot report. How does this differ from the Nanopore data?
 
 :::
 

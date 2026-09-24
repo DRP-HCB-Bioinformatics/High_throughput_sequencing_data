@@ -200,6 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#long-reads" id="toc-long-reads" class="nav-link" data-scroll-target="#long-reads">Long Reads</a>
   <ul class="collapse">
   <li><a href="#nanoplot" id="toc-nanoplot" class="nav-link" data-scroll-target="#nanoplot">NanoPlot</a></li>
+  <li><a href="#pacbio-data" id="toc-pacbio-data" class="nav-link" data-scroll-target="#pacbio-data">PacBio data</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -298,8 +299,8 @@ Solution
 <p>Alternatively, you can download data to your own machine for viewing. Applications like <a href="https://filezilla-project.org/">FileZilla</a> and <a href="https://cyberduck.io/">Cyberduck</a> can connect to remote servers and transfer files.</p>
 <p>You can also view the precomputed output at the links below:</p>
 <ul>
-<li><a href="https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/fastqc/SRR15372746_1_fastqc.html">Forward reads</a></li>
-<li><a href="https://bifx-core3.bio.ed.ac.uk/~hdeweer/Training/DataQC/fastqc/SRR15372746_2_fastqc.html">Reverse reads</a></li>
+<li><a href="https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/fastqc/SRR15372746_1_fastqc.html">Forward reads</a></li>
+<li><a href="https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/fastqc/SRR15372746_2_fastqc.html">Reverse reads</a></li>
 </ul>
 <div class="resources">
 <h2 class="anchored">
@@ -439,7 +440,8 @@ Solution
 <p>Quality control of long read sequencing is slightly different from short read sequencing. The biggest difference is that reads vary greatly in length. There are many different tools available for long read QC and today we will look at <a href="https://github.com/wdecoster/NanoPlot">NanoPlot</a>, part of the <a href="https://github.com/wdecoster/nanopack">NanoPack</a> package, which supports a number of different ways to QC long read data.</p>
 <section id="nanoplot" class="level3">
 <h3 class="anchored">NanoPlot</h3>
-<p>Similar to FastQC, NanoPlot creates a number of different plots to summarise a long read FASTQ file. For this example, we have created a set of fastq reads from whole genome NanoPore sequencing. It has been downsampled to reduce the time required to process the data.</p>
+<p>Similar to FastQC, NanoPlot creates a number of different plots to summarise a long read FASTQ file. For this example, we have created a subset of fastq reads from whole genome NanoPore sequencing of <em>Escherichia coli E2348/69</em>. The data has been downsampled to reduce the time required to process the data.</p>
+<p>The full dataset is available from this <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8495745/">publication</a> and SRA run <a href="https://www.ncbi.nlm.nih.gov/sra/SRR11434959">SRR11434959</a>.</p>
 <p>First, create a new folder for the NanoPore data:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> nanopore_qc</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> nanopore_qc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -463,12 +465,15 @@ Solution
 </ul>
 </div>
 <p>Nanopore data is generally lower quality than Illumina short reads. However the reads can be very long. This is great for assembly of genomes but the accuracy can be limiting for other applications.</p>
-<p><strong>PacBio</strong> data can be very different, we have prepared a NanoPlot report for <a href="https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/PacBio_nanoplot/NanoPlot-report.html">PacBio data</a> for you to view.</p>
+</section>
+<section id="pacbio-data" class="level3">
+<h3 class="anchored">PacBio data</h3>
+<p>This publication also included long reads from PacBio sequencing (<a href="https://www.ncbi.nlm.nih.gov/sra/SRR11434954">SRR11434954</a>). PacBio data can look very different to Nanopore. We have prepared a <a href="https://bifx-core3.bio.ed.ac.uk/training/ASD/02_HTS/DataQC/PacBio_nanoplot/NanoPlot-report.html">NanoPlot report</a> for the PacBio reads for you to view.</p>
 <div class="resources">
-<h2 class="anchored">
+<h2 class="anchored" data-anchor-id="pacbio-data">
 <i class="fas fa-bell"></i> Discussion:
 </h2>
-<p>Take a look at the results of PacBio NanoPlot report. How does this differ to Nanopore data?</p>
+<p>Take a look at the PacBio NanoPlot report. How does this differ from the Nanopore data?</p>
 </div>
 <div class="key-points">
 <h2 class="anchored">

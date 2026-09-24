@@ -34,7 +34,7 @@ Sequencing data is split between two main repositories: Gene Expression Omnibus 
 To search the GEO database, click "Search for Studies at GEO DataSets" from the home page or navigate to the [Geo DataSets](https://www.ncbi.nlm.nih.gov/gds/) page.
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 1:</h2>
 
 Search for the famous cell line `HeLa`. How many results do you get? How many of these results were published in the last year? How many have a sample count between 100 and 200?
 
@@ -55,7 +55,7 @@ To search, just type 'HeLa' in the search bar. Once the results are available, y
 GEO has an advanced set of filters that allow you to search by specific metadata (organism, cell type etc.) and keywords. Often when looking for published data, the starting point will be a publication of interest rather than the GEO database. When data is published in a paper, the authors will often include a link to the GEO record. This is usually in the form of a unique **GEO accession** number, which can be used to find the data. 
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 2:</h2>
 
 Open [https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/](https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/), a paper titled "Molecular basis of polyadenylated RNA fate determination in the nucleus". 
 
@@ -101,7 +101,7 @@ The data are organised into four main levels:
 These levels are linked rather than strictly hierarchical. A single study can contain multiple samples, each sample can be associated with one or more experiments, and an experiment can have one or more sequencing runs.
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 3:</h2>
 
 Open the SRA home page and search for 'HeLa' in the search bar. How many results do you find? How do these results differ from GEO?
 
@@ -122,7 +122,7 @@ SRA differs from GEO as a search reports single run results, instead of an overv
 The filters on the left side of the page allow you to refine your search by specific metadata like *source* or sequencing *platform*. You can also search for specific accession numbers assigned to a study, sample, experiment, or run.
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 4:</h2>
 
 Search for SRA records associated with the study SRP331615 
 
@@ -155,7 +155,7 @@ Select the first experiment (SRX11675316).
 Each sequencing run contains a unique identifier (run ID) and is associated with a specific experiment. The run record contains information about the sequencing run, including the number of reads, read length, and sequencing platform used. It also provides links to download the raw sequencing data in various formats.
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 5:</h2>
 
 Click on the link to view the **run** record (SRR15372746). This record contains information about the sequencing run, including the number of reads, read length, and sequencing platform used. It also provides links to download the raw sequencing data in various formats.
 
@@ -178,7 +178,7 @@ Click on the link to view the **run** record (SRR15372746). This record contains
 ::::
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 6:</h2>
 
 Go back to the publication we were looking at earlier: [https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/](https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/)
 
@@ -221,7 +221,7 @@ fasterq-dump SRR15372746/SRR15372746.sra
 If we want to download multiple samples from SRA, we can use an accession list, a text file that contains a list of accession numbers. We can create this file manually, or use the **SRA Run Selector** to generate it for us. The SRA Run Selector is a web-based tool that allows users to select and download specific runs from the SRA database. It can be accessed from within the SRA or GEO databases.
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 7:</h2>
 
 Go back to the GEO series [GSE301785](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE301785). At the bottom of the page, there is a link to the SRA Run Selector.
 
@@ -283,7 +283,7 @@ Data within the archive is organised into several interconnected object types, s
 The ENA [search](https://www.ebi.ac.uk/ena/browser/search) function allows free text and advanced parameter searches. Search for the term `HeLa`. Initially it might say no results were found, however results should start showing up shortly after. At the top of the screen, a bar will indicate if all results are given or if the search is still ongoing. Once the results are in, they are structured into different categories. To look at the full results for each category, click on the link on the left. 
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 8:</h2>
 
 Take a look at all the projects related to `HeLa`. How many projects are related to this term?
 
@@ -304,7 +304,7 @@ Click on Project on the left side of the screen. At the time of writing there we
 For many studies, data that is in NCBI will also be in ENA. The databases are linked by a **BioprojectID**.
 
 :::: challenge
-<h2><i class="fas fa-pencil-alt"></i> Challenge:</h2>
+<h2><i class="fas fa-pencil-alt"></i> Challenge 9:</h2>
 
 1. Return to the SRA Run Selector for [SRP598636](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA1287562&o=acc_s%3Aa) and find the BioProject ID.
 2. Search for this identifier in ENA. 
@@ -327,7 +327,7 @@ The BioProjectID is PRJNA1287562. Search for this in ENA and select the project.
 Downloading data from ENA is very straightforward. At the top of the FASTQ column there is a `Download All` button, or you can select the files you want and hit `Download Script`. A small script will be generated that we can run to download the data. The script can be copied to the server and run. 
 
 ``` bash
-$ bash <script_name>.sh
+bash <script_name>.sh
 ```
 
 ::: key-points

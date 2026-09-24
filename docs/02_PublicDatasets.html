@@ -249,7 +249,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To search the GEO database, click “Search for Studies at GEO DataSets” from the home page or navigate to the <a href="https://www.ncbi.nlm.nih.gov/gds/">Geo DataSets</a> page.</p>
 <div class="challenge">
 <h2 class="anchored" data-anchor-id="geo">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 1:
 </h2>
 <p>Search for the famous cell line <code>HeLa</code>. How many results do you get? How many of these results were published in the last year? How many have a sample count between 100 and 200?</p>
 <details>
@@ -268,7 +268,7 @@ Solution
 <p>GEO has an advanced set of filters that allow you to search by specific metadata (organism, cell type etc.) and keywords. Often when looking for published data, the starting point will be a publication of interest rather than the GEO database. When data is published in a paper, the authors will often include a link to the GEO record. This is usually in the form of a unique <strong>GEO accession</strong> number, which can be used to find the data.</p>
 <div class="challenge">
 <h2 class="anchored">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 2:
 </h2>
 <p>Open <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/">https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/</a>, a paper titled “Molecular basis of polyadenylated RNA fate determination in the nucleus”.</p>
 <p>Take a look at the data availability section. Can you find this dataset in GEO?</p>
@@ -308,7 +308,7 @@ Solution
 <p>These levels are linked rather than strictly hierarchical. A single study can contain multiple samples, each sample can be associated with one or more experiments, and an experiment can have one or more sequencing runs.</p>
 <div class="challenge">
 <h2 class="anchored" data-anchor-id="sra">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 3:
 </h2>
 <p>Open the SRA home page and search for ‘HeLa’ in the search bar. How many results do you find? How do these results differ from GEO?</p>
 <details>
@@ -327,7 +327,7 @@ Solution
 <p>The filters on the left side of the page allow you to refine your search by specific metadata like <em>source</em> or sequencing <em>platform</em>. You can also search for specific accession numbers assigned to a study, sample, experiment, or run.</p>
 <div class="challenge">
 <h2 class="anchored">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 4:
 </h2>
 <p>Search for SRA records associated with the study SRP331615</p>
 <ul>
@@ -361,7 +361,7 @@ Solution
 <p>Each sequencing run contains a unique identifier (run ID) and is associated with a specific experiment. The run record contains information about the sequencing run, including the number of reads, read length, and sequencing platform used. It also provides links to download the raw sequencing data in various formats.</p>
 <div class="challenge">
 <h2 class="anchored">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 5:
 </h2>
 <p>Click on the link to view the <strong>run</strong> record (SRR15372746). This record contains information about the sequencing run, including the number of reads, read length, and sequencing platform used. It also provides links to download the raw sequencing data in various formats.</p>
 <ul>
@@ -386,7 +386,7 @@ Solution
 </div>
 <div class="challenge">
 <h2 class="anchored">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 6:
 </h2>
 <p>Go back to the publication we were looking at earlier: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/">https://pmc.ncbi.nlm.nih.gov/articles/PMC13391367/</a></p>
 <p>Can you navigate to the SRA run record for the first sample in the study?</p>
@@ -416,7 +416,7 @@ Solution
 <p>If we want to download multiple samples from SRA, we can use an accession list, a text file that contains a list of accession numbers. We can create this file manually, or use the <strong>SRA Run Selector</strong> to generate it for us. The SRA Run Selector is a web-based tool that allows users to select and download specific runs from the SRA database. It can be accessed from within the SRA or GEO databases.</p>
 <div class="challenge">
 <h2 class="anchored" data-anchor-id="sra-toolkit">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 7:
 </h2>
 <p>Go back to the GEO series <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE301785">GSE301785</a>. At the bottom of the page, there is a link to the SRA Run Selector.</p>
 <p>See if you can download an accession list for all of the WT RNA-seq samples from HelaKyoto cells, sequenced on the Illumina NextSeq 2000 platform. How many samples are there in total?</p>
@@ -471,7 +471,7 @@ Solution
 <p>The ENA <a href="https://www.ebi.ac.uk/ena/browser/search">search</a> function allows free text and advanced parameter searches. Search for the term <code>HeLa</code>. Initially it might say no results were found, however results should start showing up shortly after. At the top of the screen, a bar will indicate if all results are given or if the search is still ongoing. Once the results are in, they are structured into different categories. To look at the full results for each category, click on the link on the left.</p>
 <div class="challenge">
 <h2 class="anchored" data-anchor-id="searching-the-ena">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 8:
 </h2>
 <p>Take a look at all the projects related to <code>HeLa</code>. How many projects are related to this term?</p>
 <details>
@@ -490,7 +490,7 @@ Solution
 <p>For many studies, data that is in NCBI will also be in ENA. The databases are linked by a <strong>BioprojectID</strong>.</p>
 <div class="challenge">
 <h2 class="anchored">
-<i class="fas fa-pencil-alt"></i> Challenge:
+<i class="fas fa-pencil-alt"></i> Challenge 9:
 </h2>
 <ol type="1">
 <li>Return to the SRA Run Selector for <a href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=PRJNA1287562&amp;o=acc_s%3Aa">SRP598636</a> and find the BioProject ID.</li>
@@ -511,7 +511,7 @@ Solution
 </details>
 </div>
 <p>Downloading data from ENA is very straightforward. At the top of the FASTQ column there is a <code>Download All</code> button, or you can select the files you want and hit <code>Download Script</code>. A small script will be generated that we can run to download the data. The script can be copied to the server and run.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> bash <span class="op">&lt;</span>script_name<span class="op">&gt;</span>.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> <span class="op">&lt;</span>script_name<span class="op">&gt;</span>.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="key-points">
 <h2 class="anchored">
 <i class="fas fa-thumbtack"></i> Key Points:
