@@ -1,0 +1,26 @@
+# For Apple Silicon Macs (M1/M2/M3/M4):
+#   1. CONDA_SUBDIR=osx-64 conda env create -f alt_htsd.yml
+#   2. conda activate htsd
+#   3. conda env config vars set CONDA_SUBDIR=osx-64
+name: htsd
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.14
+  - fastqc=0.12.1
+  - fastq-screen=0.16.0
+  - multiqc=1.35
+  - nanoplot=1.46.2
+  - nanoget=1.19.6
+  - bowtie=1.0.0
+  - bowtie2=2.5.5
+  - sra-tools=3.4.1
+  - pysam=0.24.1
+  - biopython=1.88
+  - polars=1.44.2
+  - pandas=3.0.5
+  - numpy=2.5.3
+  - scipy=1.18.1
+  - plotly=7.0.0
