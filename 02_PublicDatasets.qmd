@@ -225,7 +225,7 @@ If we want to download multiple samples from SRA, we can use an accession list, 
 
 Go back to the GEO series [GSE301785](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE301785). At the bottom of the page, there is a link to the SRA Run Selector.
 
-See if you can download an accession list for all of the WT RNA-seq samples from HelaKyoto cells, sequenced on the Illumina NextSeq 2000 platform. How many samples are there in total?
+See if you can download an accession list for all of the WT samples from HelaKyoto cells, sequenced on the Illumina NextSeq 2000 platform. How many samples are there in total?
 
 <details>
 
